@@ -74,3 +74,13 @@ const swiper = new Swiper(".swiper", {
   spaceBetween: 20,
   loop: true,
 });
+
+
+function openForm(packageName) {
+  document.getElementById("bookingForm").style.display = "flex";
+  document.getElementById("packageName").value = packageName;
+}
+
+function closeForm() {
+  document.getElementById("bookingForm").style.display = "none";
+}

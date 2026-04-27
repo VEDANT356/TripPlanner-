@@ -161,27 +161,27 @@
 <div class="packages">
 
   <div class="card">
-    <img src="assets/goa.jpg" alt="Goa">
+    <img src="assets/destination-1.jpg" alt="Goa">
     <h3>Goa Weekend Trip</h3>
     <p>₹4,999 | 3 Days / 2 Nights</p>
     <p>Beach stay + sightseeing + nightlife</p>
-    <button class="btn" onclick="location.href='#contact'">Book Now</button>
+    <button class="btn" onclick="openForm('Goa Weekend Trip')">Book Now</button>
   </div>
 
   <div class="card">
-    <img src="assets/manali.jpg" alt="Manali">
+    <img src="assets/destination-2.jpg" alt="Manali">
     <h3>Manali Adventure</h3>
     <p>₹7,999 | 5 Days / 4 Nights</p>
     <p>Snow points + trekking + hotel stay</p>
-    <button class="btn" onclick="location.href='#contact'">Book Now</button>
+    <button class="btn" onclick="openForm('Manali Adventure')">Book Now</button>
   </div>
 
   <div class="card">
-    <img src="assets/jaipur.jpg" alt="Jaipur">
+    <img src="assets/destination-3.jpg" alt="Jaipur">
     <h3>Jaipur Heritage Tour</h3>
     <p>₹6,499 | 4 Days / 3 Nights</p>
     <p>Forts + culture + local food</p>
-    <button class="btn" onclick="location.href='#contact'">Book Now</button>
+    <button class="btn" onclick="openForm('Jaipur Heritage Tour')">Book Now</button>
   </div>
 
 </div>
@@ -206,7 +206,7 @@
     <section class="section__container discover__container">
       <h2 class="section__header">Discover The World From Above</h2>
       <p class="section__description">
-        Experience Breathtaking Views and Unique Perspectives
+      Experience Breathtaking Views and Unique Perspectives
       </p>
       <div class="discover__grid">
         <div class="discover__card">
@@ -259,7 +259,7 @@
                 </p>
               </div>
               <div class="client__details">
-                <img src="assets/client-1.jpg" alt="client" />
+                <img src="assets/client-3.jpg" alt="client" />
                 <div>
                   <h4>Rahul Sharma</h4>
                   <h5>Travel Blogger</h5>
@@ -313,7 +313,7 @@
                 </p>
               </div>
               <div class="client__details">
-                <img src="assets/client-3.jpg" alt="client" />
+                <img src="assets/client-4.jpg" alt="client" />
                 <div>
                   <h4>Aarav Khurana</h4>
                   <h5>Cultural Historian</h5>
@@ -340,7 +340,7 @@
                 </p>
               </div>
               <div class="client__details">
-                <img src="assets/client-4.jpg" alt="client" />
+                <img src="assets/client-1 .jpg" alt="client" />
                 <div>
                   <h4>Harshad Patel</h4>
                   <h5>Business Executive</h5>
@@ -351,6 +351,19 @@
         </div>
       </div>
     </section>
+<div id="bookingForm" class="booking-form">
+  <div class="form-box">
+    <span class="close-btn" onclick="closeForm()">×</span>
+    <h2>Book Your Trip</h2>
+
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Your Email" required>
+    <input type="text" id="packageName" readonly>
+
+    <button class="btn">Confirm Booking</button>
+  </div>
+</div>~
+
 
     <footer id="contact">
       <div class="section__container footer__container">

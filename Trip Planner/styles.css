@@ -230,7 +230,17 @@ header::before {
 }
 
 .destination__card img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  object-position: center;
   border-radius: 1.5rem;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+
+.destination__card:hover img {
+  transform: scale(1.05);
   box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
 }
 
@@ -481,8 +491,11 @@ header::before {
 }
 
 .client__details img {
-  max-width: 50px;
-  border-radius: 100%;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
 }
 
 .client__details h4 {
@@ -815,4 +828,41 @@ footer {
   .packages {
     grid-template-columns: 1fr;
   }
+}
+
+
+.booking-form {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.form-box {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 300px;
+  text-align: center;
+  position: relative;
+}
+
+.form-box input {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 20px;
+  cursor: pointer;
 }
