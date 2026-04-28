@@ -76,7 +76,14 @@ const swiper = new Swiper(".swiper", {
 });
 
 
+
 function openForm(packageName) {
+  if (localStorage.getItem("isLoggedIn") !== "true") {
+    alert("Please login first");
+    openLogin();
+    return;
+  }
+
   document.getElementById("bookingForm").style.display = "flex";
   document.getElementById("packageName").value = packageName;
 }
@@ -84,3 +91,50 @@ function openForm(packageName) {
 function closeForm() {
   document.getElementById("bookingForm").style.display = "none";
 }
+
+
+function openLogin() {
+  document.getElementById("loginForm").style.display = "flex";
+}
+
+function closeLogin() {
+  document.getElementById("loginForm").style.display = "none";
+}
+
+
+function handleLogin() {
+  const email = document.getElementById("loginEmail").value;
+  const password = document.getElementById("loginPassword").value;
+
+  if (email === "user@gmail.com" && password === "123456") {
+    localStorage.setItem("isLoggedIn", "true");
+    alert("Login successful");
+    closeLogin();
+    updateUI();
+  } else {
+    alert("Invalid credentials");
+  }
+}
+
+function handleLoginClick() {
+  if (localStorage.getItem("isLoggedIn") === "true") {
+    localStorage.removeItem("isLoggedIn");
+    updateUI();
+  } else {
+    openLogin();
+  }
+}
+
+
+function updateUI() {
+  const btn = document.getElementById("loginBtn");
+
+  if (localStorage.getItem("isLoggedIn") === "true") {
+    btn.innerText = "LOGOUT";
+  } else {
+    btn.innerText = "LOGIN";
+  }
+}
+
+
+updateUI();

@@ -29,6 +29,7 @@
         <li><a href="#about">ABOUT</a></li>
         <li><a href="#package">PACKAGE</a></li>
         <li><a href="#contact">CONTACT</a></li>
+        <li><a href="javascript:void(0)" id="loginBtn" onclick="handleLoginClick()">LOGIN</a></li>
       </ul>
     </nav>
 
@@ -315,7 +316,7 @@
               <div class="client__details">
                 <img src="assets/client-4.jpg" alt="client" />
                 <div>
-                  <h4>Aarav Khurana</h4>
+                  <h4>Tony Stark</h4>
                   <h5>Cultural Historian</h5>
                 </div>
               </div>
@@ -351,6 +352,17 @@
         </div>
       </div>
     </section>
+    <div id="loginForm" class="booking-form" style="display: none;">
+  <div class="form-box">
+    <span class="close-btn" onclick="closeLogin()">×</span>
+    <h2>Login</h2>
+
+    <input type="email" id="loginEmail" placeholder="Enter Email" required>
+<input type="password" id="loginPassword" placeholder="Enter Password" required>
+
+<button class="btn" onclick="handleLogin()">Login</button>
+  </div>
+</div>
 <div id="bookingForm" class="booking-form">
   <div class="form-box">
     <span class="close-btn" onclick="closeForm()">×</span>
@@ -362,8 +374,6 @@
 
     <button class="btn">Confirm Booking</button>
   </div>
-</div>~
-
 
     <footer id="contact">
       <div class="section__container footer__container">
