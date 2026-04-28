@@ -16,19 +16,6 @@ This project simulates a travel booking platform with login functionality and pa
 
 ---
 
-## 🔐 Authentication (Frontend Only)
-
-This project includes a **basic login simulation** using localStorage.
-
-* Default Login:
-
-  * Email: [user@gmail.com](mailto:user@gmail.com)
-  * Password: 123456
-
-⚠️ Note: This is not a secure authentication system (no backend).
-
----
-
 ## 📦 Booking Flow
 
 * User must login before booking
