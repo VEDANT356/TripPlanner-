@@ -1,35 +1,49 @@
-# 🌍 Trip Planner
+# ✈️ TripPlanner - Travel & Tour Website
 
-A simple and responsive **Trip Planner web application** built using HTML, CSS, and JavaScript.
-It helps users explore destinations, view travel options, and plan trips easily.
+A responsive travel website built using HTML, CSS, and JavaScript.
+This project simulates a travel booking platform with login functionality and package booking UI.
 
 ---
 
-## ✨ Features
+## 🚀 Features
 
-* 🗺️ Beautiful travel destination UI
-* 🖼️ Image gallery for places & clients
-* 📱 Fully responsive design (mobile + desktop)
-* ⚡ Fast and lightweight frontend
-* 🎨 Clean and modern layout
+* Responsive modern UI
+* Travel destination showcase
+* Tour packages section
+* Login popup (frontend-based authentication)
+* Booking form with login restriction
+* Interactive animations (ScrollReveal & Swiper)
+
+---
+
+## 📦 Booking Flow
+
+* User must login before booking
+* After login → booking form opens
+* Selected package auto-filled in form
+
+---
+
+## 🛠️ Tech Stack
+
+* HTML5
+* CSS3
+*Vanilla JavaScript for interactivity, ScrollReveal for animations, and Swiper.js for sliders.
 
 ---
 
 ## 📁 Project Structure
 
 ```
-Trip Planner/
-│
-├── assets/
-│   ├── client images
-│   ├── destination images
-│
-├── index.html
-├── style.css
-└── script.js
+TripPlanner/
+│── index.html
+│── styles.css
+│── main.js
+│── assets/
 ```
 
 ---
+
 
 
 ## 🛠️ Built With
@@ -50,13 +64,17 @@ Trip Planner/
 * Live map integration
 
 ---
+=======
+>>>>>>> 2091222cda0177945e3f8be5ce1f3a2dd91ce086
 
 ## 👨‍💻 Author
 
-* Developed by: **Vedant**
-* GitHub: https://github.com/VEDANT356
+Vedant Kotkar
 
 ---
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2091222cda0177945e3f8be5ce1f3a2dd91ce086
