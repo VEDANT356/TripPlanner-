@@ -63,9 +63,6 @@ TripPlanner/
 * Backend support (Node.js / Firebase)
 * Live map integration
 
----
-=======
->>>>>>> 2091222cda0177945e3f8be5ce1f3a2dd91ce086
 
 ## 👨‍💻 Author
 
@@ -73,8 +70,3 @@ Vedant Kotkar
 
 ---
 
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 2091222cda0177945e3f8be5ce1f3a2dd91ce086

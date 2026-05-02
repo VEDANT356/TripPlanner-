@@ -15,18 +15,27 @@
     <title>Web Design Mastery | TripPlanner</title>
   </head>
   <body>
-    <nav>
-      <div class="nav__header">
-        <div class="nav__logo">
-          <a href="#" class="logo">TripPlanner</a>
-        </div>
-        <div class="nav__menu__btn" id="menu-btn">
-          <i class="ri-menu-line"></i>
-        </div>
-      </div>
+    <div class="nav__header">
+  
+  <div class="nav__logo">
+    <a href="#" class="logo">TripPlanner</a>
+  </div>
+
+
+  <div class="nav__search">
+    <i class="ri-search-line"></i>
+    <input type="text" placeholder="Where do you want to go?" />
+  </div>
+
+
+  <div class="nav__actions">
+    <button class="login-btn" onclick="handleLoginClick()">
+      Login/Signup
+    </button>
+  </div>
+</div>
       <ul class="nav__links" id="nav-links">
         <li><a href="#home">HOME</a></li>
-        <li><a href="#about">ABOUT</a></li>
         <li><a href="#package">PACKAGE</a></li>
         <li><a href="#contact">CONTACT</a></li>
         <li><a href="javascript:void(0)" id="loginBtn" onclick="handleLoginClick()">LOGIN</a></li>
