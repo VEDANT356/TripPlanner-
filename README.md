@@ -1,40 +1,45 @@
 # ✈️ TripPlanner - Travel & Tour Website
 
-A responsive travel website built using HTML, CSS, and JavaScript.
-This project simulates a travel booking platform with login functionality and package booking UI.
+A responsive travel website built using HTML, CSS, and JavaScript.  
+This project simulates a travel booking platform with login functionality and package booking flow.
 
 ---
 
 ## 🚀 Features
 
-* Responsive modern UI
-* Travel destination showcase
-* Tour packages section
-* Login popup (frontend-based authentication)
-* Booking form with login restriction
-* Interactive animations (ScrollReveal & Swiper)
+- Responsive modern UI
+- Travel destinations showcase
+- Tour packages section
+- Login popup system
+- Booking form with login restriction
+- Selected package auto-filled in booking form
+- Scroll animations using ScrollReveal
+- Image sliders using Swiper.js
 
 ---
 
 ## 📦 Booking Flow
 
-* User must login before booking
-* After login → booking form opens
-* Selected package auto-filled in form
+- User selects a package
+- Login required before booking
+- After login, booking form opens
+- Selected package details automatically appear in the form
 
 ---
 
 ## 🛠️ Tech Stack
 
-* HTML5
-* CSS3
-*Vanilla JavaScript for interactivity, ScrollReveal for animations, and Swiper.js for sliders.
+- HTML5
+- CSS3
+- JavaScript
+- ScrollReveal.js
+- Swiper.js
 
 ---
 
 ## 📁 Project Structure
 
-```
+```bash
 TripPlanner/
 │── index.html
 │── styles.css
@@ -44,29 +49,18 @@ TripPlanner/
 
 ---
 
+## 🌟 Future Improvements
 
-
-## 🛠️ Built With
-
-* HTML5
-* CSS3
-* JavaScript
-
-
+- Proper Login / Signup system
+- Backend integration
+- Online booking system
+- Payment gateway
+- Firebase / Node.js support
+- Live map integration
 
 ---
-
-## 📌 Future Improvements
-
-* Login / Signup system
-* Booking system integration
-* Backend support (Node.js / Firebase)
-* Live map integration
-
 
 ## 👨‍💻 Author
 
 Vedant Kotkar
-
----
 
