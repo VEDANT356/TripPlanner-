@@ -65,7 +65,7 @@ Optimized for multiple devices:
 * Third-Party Library Integration
 * Interactive UI Development
 
----
+-----
 
 # ⚙️ APPLICATION WORKFLOW
 
