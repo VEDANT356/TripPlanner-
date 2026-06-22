@@ -95,5 +95,3 @@ Optimized for multiple devices:
 
 **Vedant Kotkar**
 Computer Science Student | Frontend Developer
-
-
