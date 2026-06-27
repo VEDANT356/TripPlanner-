@@ -27,6 +27,10 @@ Users are required to log in before accessing the booking functionality.
 * Login-based booking restriction
 * Smooth booking workflow
 
+## Home Screen 
+<img width="1902" height="912" alt="image" src="https://github.com/user-attachments/assets/26c87dae-fe90-41ee-8b30-9e0bc3cf65bd" />
+
+
 ## 🎨 Interactive User Interface
 
 * Scroll-based animations using **ScrollReveal.js**
