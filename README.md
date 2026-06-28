@@ -3,7 +3,6 @@
 A modern and responsive **Travel & Tour Booking Website** built using **HTML, CSS, and Vanilla JavaScript**.
 
 The project simulates a travel booking platform with features such as **destination exploration, package selection, user authentication flow, and booking management**, while maintaining a clean and engaging user experience.
-
 ---
 
 # 🚀 FEATURES
