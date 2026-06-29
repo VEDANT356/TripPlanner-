@@ -1,12 +1,16 @@
 import heroImg from "../assets/header.png";
-
+import heroBg from "../assets/header-bg.jpg";
 function Hero() {
     return(
         <section className="hero">
-            <div className="hero-content">
-            <p>Plan your perfect trip with us.</p>
 
-            <h1>Explore The World With TripPlanner</h1>
+            <div className="hero-content">
+            <p>Plan Your Perfect Journey </p>
+
+            <h1>Explore The World
+                <br />
+                With TripPlanner
+            </h1>
 
             <button> Book A Trip Now</button>
             </div>
