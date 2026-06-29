@@ -15,18 +15,24 @@ function Destination() {
             image={destination1}
             title="Goa"
             location="India"
+            price="14,999/-Rs"
+            rating="4.9"
             />
 
             <DestinationCard
             image={destination2}
             title="Manali"
             location="Himachal Pradesh"
+            price="17,999/-Rs"
+            rating="4.8"
             />
 
             <DestinationCard
             image={destination3}
-            title="jaipur"
+            title="Jaipur"
             location="India"
+            price="12,999/-Rs"
+            rating="4.7"
             />
 
             </div>
