@@ -16,7 +16,7 @@ function Destination() {
             title="Goa"
             location="India"
             price="14,999/-Rs"
-            rating="4.9"
+            rating="4.8"
             />
 
             <DestinationCard
@@ -24,7 +24,7 @@ function Destination() {
             title="Manali"
             location="Himachal Pradesh"
             price="17,999/-Rs"
-            rating="4.8"
+            rating="4.9"
             />
 
             <DestinationCard

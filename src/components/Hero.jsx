@@ -18,6 +18,7 @@ function Hero() {
             <div className="hero-image">
                 <img src={heroImg} alt="Plane" />
             </div>
+            
         </section>
     );
 }

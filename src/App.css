@@ -52,15 +52,16 @@ nav h2 {
   background-color: #2563eb;
   color: white;
   border:none;
-  border: radius 10px;
+  border-radius: 10px;
   cursor: pointer;
   font-size: 18px;
-  transition: .3s;
+  transition: .35s;
 }
 
 .hero-content button:hover{
-  transform: translateY(-5px);
-  box-shadow: 0 15xpx 30px rgba(37,99,235,.45);
+  transform: translateY(-6px) scale(1.03);
+  background: #1d4ed8;
+  box-shadow: 0 15px 30px rgba(37,99,235,.5);
 }
 
 .hero-image{
@@ -104,17 +105,49 @@ nav h2 {
 
 .nav-links a{
   text-decoration: none;
-  color:black;
+  color:white;
   font-weight: 500;
+  transition:  .3s;
+  position: relative;
+}
+.nav-links a:hover{
+  color: #3b82f6;
+}
+
+.nav-links a::after{
+  content:  "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background-color: #3b82f6;
+  transition:  .3s;
 }
 
 .login-btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   padding: 10px 20px;
   background: #3b82f6;
   color:white;
   border:none;
+  font-size: medium;
   border-radius: 8px;
   cursor:pointer;
+}
+.login-btn img{
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+.login-btn:hover{
+  transform: translateY(-4px);
+  background: #2563eb;
+  box-shadow: 0 10px 25px rgba(35,99,235,.45);
 }
 .destination{
   padding:100px 80px;
@@ -213,4 +246,40 @@ nav h2 {
 
 .destination-info button:hover{
   background: #1d4ed8;
+}
+
+.Why-choose{
+  padding: 100px 80px;
+  background: radial-gradient(cirle at top right,#243b72 0%,#17181d 45%, #111216 100%);
+}
+.Why-choose h2{
+  text-align: center;
+  color: white;
+  font-size: 42px;
+  margin-bottom: 50px;
+}
+
+.Why-container{
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+.Why-card{
+  width: 280px;
+  background: #1b1e27;
+  border-radius: 18px;
+  padding: 30px;
+  text-align: center;
+  transition:  .35s;
+  box-shadow: 0 25px 45px rgba(37,99,235,.25);
+}
+.Why-card h3{
+  color: white;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+.Why-card p{
+  color: #9ca3af;
+  line-height: 1.6;
 }

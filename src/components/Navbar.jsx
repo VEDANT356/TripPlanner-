@@ -1,3 +1,5 @@
+import userIcon from "../assets/user.png";
+
 function Navbar() {
   return (
     <nav className="navbar">
@@ -13,6 +15,7 @@ function Navbar() {
         </ul>
 
         <button className="login-btn">
+            <img src={userIcon} alt="user" />
             Login
         </button>
 
