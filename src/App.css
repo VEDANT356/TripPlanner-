@@ -249,7 +249,7 @@ nav h2 {
 }
 
 .Why-choose{
-  padding: 100px 80px;
+  padding: 90px 80px;
   background: radial-gradient(cirle at top right,#243b72 0%,#17181d 45%, #111216 100%);
 }
 .Why-choose h2{
@@ -282,4 +282,14 @@ nav h2 {
 .Why-card p{
   color: #9ca3af;
   line-height: 1.6;
+}
+.feature-card{
+  transition:  .3s;
+}
+.feature-card:hover{
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(37,99,235,.25);
+}
+.feature-card span{
+  font-size: 38px;
 }

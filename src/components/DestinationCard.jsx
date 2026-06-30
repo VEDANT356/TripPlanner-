@@ -18,7 +18,7 @@ function DestinationCard ({ image, title, location,price,rating}){
                     ⭐{rating}
                 </span>
                 </div>
-            <button>View Details</button>
+            <button>Book Now</button>
             </div>
         </div>
     );
