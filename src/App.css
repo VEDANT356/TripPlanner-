@@ -248,40 +248,50 @@ nav h2 {
   background: #1d4ed8;
 }
 
-.Why-choose{
-  padding: 90px 80px;
-  background: radial-gradient(circle at top right,#243b72 0%,#17181d 45%, #111216 100%);
+.Why-Choose{
+    padding:80px 10%;
+    background: #0f1117;;
+    color:white;
+    text-align:center;
 }
-.Why-choose h2{
-  text-align: center;
-  color: white;
-  font-size: 42px;
-  margin-bottom: 50px;
+
+.Why-Choose h2{
+    font-size:42px;
+    margin-bottom:50px;
 }
 
 .Why-container{
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:30px;
 }
+
 .Why-card{
-  width: 280px;
-  background: #1b1e27;
-  border-radius: 18px;
-  padding: 30px;
-  text-align: center;
-  transition:  .35s;
-  box-shadow: 0 25px 45px rgba(37,99,235,.25);
+    background:#1f2430;
+    padding:35px 20px;
+    border-radius:15px;
+    transition:.3s;
 }
+
+.Why-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 20px rgba(255,181,0,.3);
+}
+
+.why-icon{
+    font-size:45px;
+    color:#ffb400;
+    margin-bottom:15px;
+}
+
 .Why-card h3{
-  color: white;
-  font-size: 24px;
-  margin-bottom: 20px;
+    font-size:32px;
+    margin-bottom:10px;
 }
+
 .Why-card p{
-  color: #9ca3af;
-  line-height: 1.6;
+    color:#ccc;
+    font-size:18px;
 }
 .feature-card{
   transition:  .3s;
@@ -415,4 +425,61 @@ nav h2 {
 
 .contact-right button:hover{
   background: orange;
+}
+
+.footer{
+    background:#0b0e16;
+    color:white;
+    padding:70px 10%;
+}
+
+.footer-container{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:50px;
+}
+
+.footer-col{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    max-width:250px;
+}
+
+.footer-col h2{
+    font-size:32px;
+    color:#4c8dff;
+}
+
+.footer-col h3{
+    font-size:22px;
+}
+
+.footer-col p{
+    color:#bdbdbd;
+    line-height:1.7;
+}
+
+.footer-col a{
+    color:#bdbdbd;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.footer-col a:hover{
+    color:#4c8dff;
+    padding-left:6px;
+}
+
+.footer hr{
+    margin:50px 0 25px;
+    border:none;
+    height:1px;
+    background:#2c2c2c;
+}
+
+.copyright{
+    text-align:center;
+    color:#9c9c9c;
 }

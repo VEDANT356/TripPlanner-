@@ -12,7 +12,7 @@ function Contact(){
                     <div className ="contact-info">
                         <p> Mumbai, India</p>
                         <p> +91 1234567890</p>
-                        <p> Email: info@travelcompany.com</p>
+                        <p> Email: info@tripplanner.com</p>
                     </div>
                 </div>
 

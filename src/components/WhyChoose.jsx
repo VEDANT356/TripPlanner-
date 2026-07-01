@@ -1,28 +1,44 @@
-function WhyChoose(){
-    return(
-        <section className="Why-Choose">
-            <h2>Why Choose Us</h2>
+import {
+  FaGlobeAsia,
+  FaHotel,
+  FaPlaneDeparture,
+  FaStar,
+} from "react-icons/fa";
 
-            <div className="Why-container">
-                <div className="Why-card">
-                    <h3> Best Destination</h3>
-                    <p>Explore the world's most beautiful places with us.</p>
-                </div>
-                <div className="Why-card">
-                    <h3>  Affordable Prices</h3>
-                    <p>Enjoy premium  travel experiences at budget-friendly prices.</p>
-                </div>
-                <div className="Why-card">
-                    <h3>  Safe Travel</h3>
-                    <p>Your safety is our top priority throughout every journey.</p>               </div>
-                <div className="Why-card">
-                    <h3>  24/7 Support</h3>
-                    <p>Our team is always ready to help you anytime. </p>
-                </div>
+function WhyChoose() {
+  return (
+    <section className="Why-Choose">
+      <h2>Trusted by Thousands</h2>
 
-            </div>
-        </section>
-    )
+      <div className="Why-container">
+
+        <div className="Why-card">
+          <FaGlobeAsia className="why-icon" />
+          <h3>5000+</h3>
+          <p>Happy Travelers</p>
+        </div>
+
+        <div className="Why-card">
+          <FaHotel className="why-icon" />
+          <h3>300+</h3>
+          <p>Hotels</p>
+        </div>
+
+        <div className="Why-card">
+          <FaPlaneDeparture className="why-icon" />
+          <h3>120+</h3>
+          <p>Destinations</p>
+        </div>
+
+        <div className="Why-card">
+          <FaStar className="why-icon" />
+          <h3>4.9</h3>
+          <p>Average Rating</p>
+        </div>
+
+      </div>
+    </section>
+  );
 }
 
 export default WhyChoose;
