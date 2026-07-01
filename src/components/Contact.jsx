@@ -1,4 +1,4 @@
-import "../styles/contact.css";
+import "../App.css";
 
 function Contact(){
     return(
@@ -18,8 +18,8 @@ function Contact(){
 
                 <div className="contact-right">
                     <form className="contact-form">
-                        <Input type="text" placeholder= "Your Name" required/>
-                        <Input type="email" placeholder= "Your Email" required/>
+                        <input type="text" placeholder= "Your Name" required/>
+                        <input type="email" placeholder= "Your Email" required/>
                         <textarea placeholder= "Your Message" required></textarea>
                         <button type="submit">Send Message</button>
                     </form>
