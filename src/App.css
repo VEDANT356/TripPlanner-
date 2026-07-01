@@ -308,11 +308,11 @@ nav h2 {
 .testimonial-container{
   display:flex;
   justify-content: center;
-  gap:30px;
+  gap: 35px;
   flex-wrap:wrap;
 }
 .testimonial-card{
-  width: 30px;
+  width: 330px;
   background:#1b1e27;
   border-radius: 18px;
   padding: 30px;
@@ -321,7 +321,7 @@ nav h2 {
   box-shadow: 0 10px 30px rgba(0,0,0,.35);
 }
 
-testimonial-card:hover{
+.testimonial-card:hover{
   transform: translateY(-10px);
   box-shadow: 0 20px 45px rgba(37,99,235,.25);
 }
@@ -339,4 +339,13 @@ testimonial-card:hover{
   color:#9ca3af;
   line-height:1.7;
   font-size: 16px;
+}
+
+.client-img{
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border: 3px solid #ffd700;
 }
