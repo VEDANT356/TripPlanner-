@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import Hero  from "./components/Hero";
 import Destination from "./components/Destination";
 import WhyChoose from "./components/WhyChoose";
+import Testimonials from "./components/Testimonials";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Hero />
       <Destination />
       <WhyChoose />
+      <Testimonials />
     </>
   );
 }
