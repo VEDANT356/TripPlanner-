@@ -3,6 +3,7 @@ import "../styles/Auth.css";
 import { useState } from "react";
 import { FaEye , FaEyeSlash } from "react-icons/fa";
 
+
 function Signup() {
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -51,6 +52,23 @@ function Signup() {
 
                     <button>Create Account</button>
 
+                    <div className="divider">
+                        <span>OR</span>
+                    </div>
+
+                    <p>
+                        Don't have an account?
+                        <Link to="/signup"> Sign UP</Link>
+                        </p>
+
+                        <button className="google-btn">
+                            <img
+                            src="https://www.svgrepo.com/show/475656/google-color.svg"
+                            alt="Google"
+                            width="20"
+                            />
+                            Continue with Google
+                        </button>
                     <p>
                         Already have an account ?
                         <Link to="/login">Login</Link>

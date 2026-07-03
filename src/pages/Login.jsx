@@ -41,17 +41,36 @@ function Login() {
                         className="eye-icon"
                         onClick={() => setShowPassword(!showPassword)}
                     >
-        {showPassword ? <FaEyeSlash /> : <FaEye />}
-    </span>
-</div>
+                    {showPassword ? <FaEyeSlash /> : <FaEye />}
+                    </span>
+                </div>
 
+                <div className="auth-options">
+                <label className="remember-me">
+                    <input type="checkbox" />
+                    <span>Remember Me</span>
+                </label> 
+                    <a href="#">Forgot Password?</a>
+                </div>
                     <button>Login</button>
+
+                    <div className="divider">
+                        <span>OR</span>
+                    </div>
 
                     <p>
                         Don't have an account?
                         <Link to="/signup"> Sign UP</Link>
                         </p>
 
+                        <button className="google-btn">
+                            <img
+                            src="https://www.svgrepo.com/show/475656/google-color.svg"
+                            alt="Google"
+                            width="20"
+                            />
+                            Continue with Google
+                        </button>
                 </div>
             </div>
         </div>
