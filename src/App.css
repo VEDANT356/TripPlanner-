@@ -481,16 +481,16 @@ nav h2 {
 }
 
 .footer-bottom{
+  width: 100%;
   border-top: 1px solid rgba(255,255,255,.15);
   text-align:center;
-  margin-top: 30px;
+  margin-top: 50px;
   padding-top: 20px;
 }
 
 .footer-bottom p{
-  margin: 5px 0;
-  color: #ccc;
-  font-size: 14px;
+  margin: 8px 0;
+  color: #bdbdbd;
 }
 .copyright{
     text-align:center;
@@ -510,4 +510,26 @@ nav h2 {
 .social-links a:hover{
   color:#4f8cff;
   transform:translateY(-5px);
+}
+
+.logo-link {
+  text-decoration: none;
+  color: #4c8dff;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.login-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 10px 20px;
+  background: #3b82f6;
+  color: white;
+
+  text-decoration: none !important; /* Important */
+  border: none;
+  border-radius: 8px;
 }

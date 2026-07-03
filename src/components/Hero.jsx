@@ -1,5 +1,7 @@
 import heroImg from "../assets/header.png";
 import heroBg from "../assets/header-bg.jpg";
+import Packages from "../components/Packages";
+
 function Hero() {
     return(
         <section className="hero">

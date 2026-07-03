@@ -1,0 +1,134 @@
+.auth-container {
+    min-height: 100vh;
+    display: flex;
+    background:  radial-gradient(circle at top right,#243b72 0%, #171817 #45, #111216 100%);
+}
+
+.auth-left,
+.auth-right{
+    flex: 1;
+}
+.auth-left {
+    font-size: 52px;
+    margin-bottom:  20px;
+}
+.auth-left h1{
+    font-size: 52px;
+    margin-bottom:  20px;
+}
+
+.auth-left p {
+    color: #bdbdbd;
+    line-height:  1.7;
+    margin-bottom: 30px;
+}
+
+.auth-feature{
+    list-style: none;
+}
+
+.auth-feature li{
+margin: 15px 0;
+    font-size: 18px;
+}
+
+.auth-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth-card{
+    width: 420px;
+    background:  rgba(255,255,255,0.08);
+    backdrop-filter: blur(15px);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,.35);
+}
+
+.auth-card h2{
+    color: white;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.auth-card input{
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 18px;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    font-size: 16px;
+}
+.auth-card button{
+        width: 100%;
+    padding: 15px;
+    background: #3b82f6;
+    color: white;
+    border:none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 17x;
+    transition: .3s;
+}
+
+.auth-card button:hover{
+    background: #2563eb;
+}
+.auth-card p{
+    color:white;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.auth-card a{
+    color:#4c8dff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.@media(max-width:900px){
+    .auth-container{
+        flex-direction:column;
+    }
+
+    .auth-left{
+        text-align: center;
+        padding: 40px;
+    }
+    .auth-card{
+        width:90%;
+        margin-bottom: 40px;
+    }
+}
+
+.password-field{
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.password-field input{
+    width: 100%;
+    padding: 15px;
+    padding-right: 50px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+}
+
+.eye-icon{
+    position: absolute;
+    top: 50%;
+    right: 18px;
+    transform: translateY(-50%);
+    color: #888;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.eye-icon:hover{
+    color: #3b82f6;
+}
