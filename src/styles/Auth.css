@@ -5,8 +5,8 @@
   justify-content: space-between;
   padding: 0 80px;
   background:
-    linear-gradient(rgba(6, 10, 30, 0.82), rgba(6, 10, 30, 0.88)),
-    url("../assets/auth-bg.png");
+    linear-gradient(rgba(6, 10, 30, .45), rgba(6, 10, 30, .55)),
+    url("../assets/auth-bg.png.png");
   background-size: cover;
   background-position: center;
 }
@@ -22,6 +22,8 @@
   flex-direction: column;
   justify-content: center;
   padding: 0 80px;
+  transform: translateY(-50px);
+  margin-top: -40px;
 }
 
 .auth-left h1,
@@ -31,23 +33,92 @@
 }
 
 .auth-left h1 {
-  font-size: 58px;
+  font-size: 72px;
+  font-weight: 800;
+  line-height: 1;
+}
+.auth-left .trip{
+  color: #ffffff;
+}
+.auth-left .planner{
+    background: linear-gradient(
+        90deg,
+        #4f8cff 0%,
+        #5fb8ff 35%,
+        #7fd3ff 70%,
+        #ff9f5a 100%
+    );
+    background-clip: text;
+    -webkit-backdrop-clip: text;
+
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+
+    display: inline-block;
+}
+.auth-tagline{
+  color: #ffffff;
+  font-size: 46px;
   font-weight: 700;
+  line-height: 1.2;
+  margin: 30px 0 20px;
+}
+.auth-tagline span{
+    background: linear-gradient(
+        90deg,
+        #4f8cff,
+        #67c1ff,
+        #ffb46c
+    );
+    background-clip: text;
+    -webkit-backdrop-clip: text;
+
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+
+    display: inline-block;
 }
 
+
 .auth-left p {
-  font-size: 22px;
-  max-width: 650px;
+  font-size: 20px;
+  max-width: 500px;
+  color: #e6e6e6;
+  line-height: 1.5;
+  margin-bottom: 35px;
 }
 
 .auth-features {
   list-style: none;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
 }
 
 .auth-features li {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  font-weight: 600;
   font-size: 22px;
-  margin: 22px 0;
+}
+.feature-icon{
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  backdrop-filter: blur(12px);
+  background: transparent;
+}
+
+.auth-left h1 span{
+  font-size: 70px;
+  margin-right: 12px;
 }
 
 .auth-right {
@@ -62,9 +133,10 @@
   width: 100%;
   max-width: 430px;
   padding: 40px;
-  background: rgba(18, 25, 45, 0.45);
+  background: rgba(18, 25, 45, 0.35);
   backdrop-filter: blur(22px);
   border-radius: 24px;
+  border:1px solid rgba(255, 255, 255, 0.8)
 }
 
 .auth-card h2 {

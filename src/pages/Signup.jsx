@@ -17,16 +17,33 @@ function Signup() {
             </Link>
 
             <div className="auth-left">
-                <h1>✈️ TripPlanner</h1>
+                
+                    <h1>
+                        <span className="trip">Trip</span>
+                        <span className="planner">Planner</span>
+                    </h1>
+                    
+                    <h2 className="auth-tagline">
+                        Travel <span>Smarter.</span><br />
+                        Explore <span>Further.</span>
+                    </h2>
 
                 <p>
                     Create your account and start exploring
                     amazing travel destinations.
                 </p>
                 <ul className="auth-features">
-                    <li>🌍 Explore 100+ Destinations</li>
-                    <li>🔒 Secure Login</li>
-                    <li>⚡ Fast Booking</li>
+                    <li>
+                        <span className="feature-icon">🌍</span>
+                        Explore 100+ Destinations
+                        </li>
+                    <li><span className="feature-icon">🛡️</span>
+                        Secure Booking
+                        </li>
+                    <li>
+                        <span className="feature-icon">⚡</span>
+                        Instant Confirmation
+                        </li>
                 </ul>
             </div>
             <div className="auth-right">

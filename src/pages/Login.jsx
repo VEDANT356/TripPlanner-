@@ -11,16 +11,34 @@ function Login() {
     return (
         <div className="auth-container"> 
             <div className="auth-left">
-                <h1> ✈️ TripPlanner</h1>
+                <h1>
+                    <span className="trip">Trip</span>
+                    <span className="planner">Planner</span>
+                </h1>
+
+                <h2 className="auth-tagline">
+                    Travel <span>Smarter.</span><br />
+                    Explore <span>Further.</span>
+                </h2>
 
                 <p> Plan your dream journey with secure booking.
                     smart travel planning and amazing destinations.
+                    
                 </p>
 
                 <ul className="auth-features">
-                    <li>🌍 Explore 100+ Destinations</li>
-                    <li>🔒 Secure Login</li>
-                    <li>⚡ Fast Booking</li>
+                    <li>
+                        <span className="feature-icon">🌍</span>
+                        Explore 100+ Destinations
+                        </li>
+                    <li>
+                        <span className="feature-icon">🔒</span>
+                        Secure Login
+                        </li>
+                    <li>
+                        <span className="feature-icon">⚡</span>
+                        Fast Booking
+                        </li>
                 </ul>
             </div>
 
