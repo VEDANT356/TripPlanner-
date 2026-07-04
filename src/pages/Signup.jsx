@@ -1,7 +1,8 @@
 import {Link} from "react-router-dom";
 import "../styles/Auth.css";
 import { useState } from "react";
-import { FaEye , FaEyeSlash } from "react-icons/fa";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { IoArrowBack } from "react-icons/io5";
 
 
 function Signup() {
@@ -10,6 +11,11 @@ function Signup() {
 
     return (
         <div className="auth-container">
+
+            <Link to="/" className="back-btn">
+                    <IoArrowBack />
+            </Link>
+
             <div className="auth-left">
                 <h1>✈️ TripPlanner</h1>
 
@@ -17,9 +23,16 @@ function Signup() {
                     Create your account and start exploring
                     amazing travel destinations.
                 </p>
+                <ul className="auth-features">
+                    <li>🌍 Explore 100+ Destinations</li>
+                    <li>🔒 Secure Login</li>
+                    <li>⚡ Fast Booking</li>
+                </ul>
             </div>
             <div className="auth-right">
-                <div className="auth-card">
+                    
+                    
+                    <div className="auth-card">
                     <h2>Create Account</h2>
                     <input type="text" placeholder="Full Name" />
                     <input type="email" placeholder="Email" />
@@ -50,16 +63,21 @@ function Signup() {
                         </span>
                     </div>
 
-                    <button>Create Account</button>
+                    <div className="auth-options">
+                        <label className="remember-me">
+                            <input type="checkbox" />
+                        <span>
+                            I agree to <a href="#">Terms & Conditions</a>
+                        </span>
+                        </label>
+                    </div>
 
+                    <button>Create Account</button>
                     <div className="divider">
                         <span>OR</span>
                     </div>
 
-                    <p>
-                        Don't have an account?
-                        <Link to="/signup"> Sign UP</Link>
-                        </p>
+                    
 
                         <button className="google-btn">
                             <img

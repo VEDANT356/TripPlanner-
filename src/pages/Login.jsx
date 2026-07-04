@@ -2,6 +2,7 @@ import {Link} from "react-router-dom";
 import"../styles/Auth.css";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { IoArrowBack } from "react-icons/io5";
 
 function Login() {
     const [showPassword, setShowPassword] = useState(false);
@@ -24,7 +25,10 @@ function Login() {
             </div>
 
             <div className="auth-right">
-                <div className="auth-card">
+                    <Link to="/" className="back-btn">
+                    <IoArrowBack />
+                    </Link>
+                    <div className="auth-card">
                     <h2>Welcome Back</h2>
 
                     <input
@@ -49,7 +53,7 @@ function Login() {
                 <label className="remember-me">
                     <input type="checkbox" />
                     <span>Remember Me</span>
-                </label> 
+                </label>
                     <a href="#">Forgot Password?</a>
                 </div>
                     <button>Login</button>

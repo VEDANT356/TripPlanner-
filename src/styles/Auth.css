@@ -32,6 +32,8 @@
 }
 
 .auth-right {
+    flex: 1;
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -138,18 +140,47 @@
     text-decoration: underline;
 }
 
-@media (max-width:900px){
+@media (max-width: 768px){
+    .back-btn{
+    position: fixed;
+    top:20px;
+    left:20px;
+}
     .auth-container{
         flex-direction:column;
+        padding: 20px;
+    }
+    .auth-right{
+        order: 1;
     }
 
     .auth-left{
+        order: 2;
         text-align: center;
-        padding: 40px;
+        padding:  20px;
     }
-    .auth-card{
+
+
+.auth-left h1{
+    font-size: 40px;
+}
+
+.auth-left p{
+    font-size: 18px;
+}
+
+.auth-features li{
+    font-size: 18px;
+}
+.auth-right{
+    width: 100%;
+}
+
+.auth-card{
         width:90%;
-        margin-bottom: 40px;
+        max-width: 420px;
+        margin-bottom: 30px ;
+        padding: 30px;
     }
 }
 
@@ -167,6 +198,7 @@
     border-radius: 8px;
     outline: none;
 }
+
 
 .eye-icon{
     position: absolute;
@@ -198,5 +230,39 @@
     background: white;
     color: #222;
     border:1px solid #ddd;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
 
+.back-btn{
+    position: fixed;
+    top:30px;
+    left:30px;
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius:50%;
+    background: rgba(255,255,255,.08);
+    backdrop-filter: blur(10px);
+
+    color: white;
+    text-decoration: none;
+    z-index: 1000;
+
+    transition: all .3s ease;
+
+}
+.back-btn:hover{
+    background: #3b82f6;
+}
+
+.back-btn svg{
+    font-size: 18px;
+}
