@@ -3,12 +3,39 @@ import "../styles/Auth.css";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { IoArrowBack } from "react-icons/io5";
+import { auth } from "../Firebase/Firebase";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 
 function Signup() {
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
 
+    const handleSignup = async () => {
+        if (password !== confirmPassword){
+            alert("Password do not match!");
+            return;
+        }
+        try{
+            const userCredential =
+                await createUserWithEmailAndPassword(
+                    auth,
+                    email,
+                    password
+                );
+                alert("Account Created Successfully!");
+
+                console.log(userCredential.user);
+
+        }catch (error) {
+            alert (error.message);
+        }
+        
+    };
     return (
         <div className="auth-container">
 
@@ -51,12 +78,25 @@ function Signup() {
                     
                     <div className="auth-card">
                     <h2>Create Account</h2>
-                    <input type="text" placeholder="Full Name" />
-                    <input type="email" placeholder="Email" />
+                    <input
+                        type="text"
+                        placeholder="Full Name"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                    />
+                    <input
+                        type="email"
+                        placeholder="Email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
+
                     <div className="password-field">
                         <input
                             type={showPassword ? "text" : "password"}
                             placeholder="Password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
                         />
 
                         <span
@@ -70,6 +110,8 @@ function Signup() {
                         <input
                             type={showConfirmPassword ? "text" : "password"}
                             placeholder="Confirm Password"
+                            value={confirmPassword}
+                            onChange={(e) => setConfirmPassword(e.target.value)}
                         />
 
                         <span
@@ -89,7 +131,9 @@ function Signup() {
                         </label>
                     </div>
 
-                    <button>Create Account</button>
+                    <button onClick={handleSignup}>
+                        Create Account
+                    </button>
                     <div className="divider">
                         <span>OR</span>
                     </div>
