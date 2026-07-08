@@ -1,8 +1,26 @@
 import { Link } from "react-router-dom";
-import userIcon from "../assets/user.png";
+import { useEffect, useState } from "react";
+import  userIcon from "../assets/user.png";
+import { auth } from "../firebase/firebase";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 
 function Navbar() {
-  return (
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth,(currentUser) =>{
+            setUser(currentUser);
+        });
+
+        return () => unsubscribe();
+    }, []);
+
+    const handleLogout = async () => {
+        await signOut(auth);
+        alert("Logged Out Successfully!");
+    };
+
+    return (
     <nav className="navbar">
         <div className="logo">
         <Link to="/" className="logo-link">
@@ -17,13 +35,20 @@ function Navbar() {
             <li><Link to="/">Contacts</Link></li>
         </ul>
 
-        <Link to="/login" className="login-btn">
-            <img src={userIcon} alt="user" />
-            Login
-        </Link>
+        {user ? (
+            <button className="login-btn" onClick={handleLogout}>
+                <img src={userIcon} alt="user" />
+                Logout
+                </button>
+        ) :(
+            <Link to="/login" className="login-btn">
+                <img src={userIcon} alt="user" />
+                Login
+            </Link>
+        )}
 
     </nav>
-  );
+);
 }
 
 export default Navbar;

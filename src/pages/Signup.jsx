@@ -3,9 +3,10 @@ import "../styles/Auth.css";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { IoArrowBack } from "react-icons/io5";
-import { auth } from "../Firebase/Firebase";
+import { auth, googleProvider } from "../Firebase/Firebase";
+import { signInWithPopup } from "firebase/auth";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-
+import { useNavigate } from "react-router-dom";
 
 function Signup() {
     const [showPassword, setShowPassword] = useState(false);
@@ -14,10 +15,16 @@ function Signup() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
+    const navigate = useNavigate();
+    const [agreeTerms, setAgreeTerms] = useState(false);
 
     const handleSignup = async () => {
         if (password !== confirmPassword){
             alert("Password do not match!");
+            return;
+        }
+        if (!agreeTerms) {
+            alert("Please accept Term & Conditions.");
             return;
         }
         try{
@@ -31,10 +38,23 @@ function Signup() {
 
                 console.log(userCredential.user);
 
+                navigate("/");
+
         }catch (error) {
             alert (error.message);
         }
         
+    };
+
+    const handleGoogleLogin = async() => {
+        try{
+            const result = await signInWithPopup(auth, googleProvider);
+            alert ("Google Login Successful!");
+            console.log(result.user);
+            navigate("/");
+        } catch (error){
+            alert(error.message);
+        }
     };
     return (
         <div className="auth-container">
@@ -124,7 +144,10 @@ function Signup() {
 
                     <div className="auth-options">
                         <label className="remember-me">
-                            <input type="checkbox" />
+                            <input type="checkbox"
+                                    checked={agreeTerms}
+                                    onChange={(e) => setAgreeTerms(e.target.checked)}
+                            />
                         <span>
                             I agree to <a href="#">Terms & Conditions</a>
                         </span>
@@ -140,7 +163,9 @@ function Signup() {
 
                     
 
-                        <button className="google-btn">
+                        <button className="google-btn"
+                                onClick={handleGoogleLogin}
+                        >
                             <img
                             src="https://www.svgrepo.com/show/475656/google-color.svg"
                             alt="Google"

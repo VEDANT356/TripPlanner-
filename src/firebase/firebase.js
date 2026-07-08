@@ -1,15 +1,18 @@
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
+import { getAuth, GoogleAuthProvider } from "firebase/auth";
+import { ImOffice } from "react-icons/im";
+
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCvPXLFmhZ_Xl4Xl-_cQ2YeI7DMY8EarlU",
-  authDomain: "tripplanner-230c0.firebaseapp.com",
-  projectId: "tripplanner-230c0",
-  storageBucket: "tripplanner-230c0.firebasestorage.app",
-  messagingSenderId: "555860767498",
-  appId: "1:555860767498:web:62efa76302acf23ee240f3",
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
 const app = initializeApp(firebaseConfig);
 
 export const auth = getAuth(app);
+export const googleProvider = new GoogleAuthProvider();
