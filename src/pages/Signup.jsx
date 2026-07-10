@@ -3,10 +3,12 @@ import "../styles/Auth.css";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { IoArrowBack } from "react-icons/io5";
-import { auth, googleProvider } from "../Firebase/Firebase";
+import { auth, googleProvider } from "../firebase/firebase";
 import { signInWithPopup } from "firebase/auth";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import { db} from "../firebase/firebase";
+import { doc, setDoc } from "firebase/firestore";
 
 function Signup() {
     const [showPassword, setShowPassword] = useState(false);
@@ -34,6 +36,11 @@ function Signup() {
                     email,
                     password
                 );
+                await setDoc (doc(db,"users", userCredential.user.uid),{
+                    name : name,
+                    email: email ,
+                    createdAt: new Date(),
+                });
                 alert("Account Created Successfully!");
 
                 console.log(userCredential.user);
