@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import  userIcon from "../assets/user.png";
 import { auth } from "../firebase/firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 function Navbar() {
     const [user, setUser] = useState(null);
@@ -31,10 +32,10 @@ function Navbar() {
         </div>
 
         <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
-            {menuOpen ? <faTimes /> : <FaBars />}
+            {menuOpen ? <FaTimes /> : <FaBars />}
         </div>
 
-        <ul className={`nav-link ${menuOpen ? "active" :  ""}`}>
+        <ul className={`nav-links ${menuOpen ? "active" :  ""}`}>
             <li><Link to="/" onClick={() => setMenuOpen(false)}>Home</Link></li>
             <li><Link to="/" onClick={() => setMenuOpen(false)}>Packages</Link></li>
             <li><Link to="/" onClick={() => setMenuOpen(false)}>Destination</Link></li>
@@ -42,17 +43,19 @@ function Navbar() {
         </ul>
 
         {user ? (
-            <li>
-                <button onClick={handleLogout} className="mobile-logout">
-                Logout
+            
+                <button className="login-btn" onClick={handleLogout}>
+                    <img src={userIcon} alt="" />
+                    Logout
                 </button>
-            </li>
+            
         ) : (
-            <li>
-                <Link to="/login" onClick={() => setMenuOpen(false)}>
+            
+                <Link to="/login" className="login-btn">
+                    <img src={userIcon} alt="" />
                     Login
                 </Link>
-            </li>
+            
         )}
 
     </nav>
