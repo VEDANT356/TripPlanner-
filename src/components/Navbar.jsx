@@ -20,6 +20,8 @@ function Navbar() {
         alert("Logged Out Successfully!");
     };
 
+    const [menuOpen, setMenuOpen] = useState(false);
+
     return (
     <nav className="navbar">
         <div className="logo">
@@ -28,23 +30,29 @@ function Navbar() {
             </Link>
         </div>
 
-        <ul className="nav-links">
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/">Packages</Link></li>
-            <li><Link to="/">Destination</Link></li>
-            <li><Link to="/">Contacts</Link></li>
+        <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
+            {menuOpen ? <faTimes /> : <FaBars />}
+        </div>
+
+        <ul className={`nav-link ${menuOpen ? "active" :  ""}`}>
+            <li><Link to="/" onClick={() => setMenuOpen(false)}>Home</Link></li>
+            <li><Link to="/" onClick={() => setMenuOpen(false)}>Packages</Link></li>
+            <li><Link to="/" onClick={() => setMenuOpen(false)}>Destination</Link></li>
+            <li><Link to="/" onClick={() => setMenuOpen(false)}>Contacts</Link></li>
         </ul>
 
         {user ? (
-            <button className="login-btn" onClick={handleLogout}>
-                <img src={userIcon} alt="user" />
+            <li>
+                <button onClick={handleLogout} className="mobile-logout">
                 Logout
                 </button>
-        ) :(
-            <Link to="/login" className="login-btn">
-                <img src={userIcon} alt="user" />
-                Login
-            </Link>
+            </li>
+        ) : (
+            <li>
+                <Link to="/login" onClick={() => setMenuOpen(false)}>
+                    Login
+                </Link>
+            </li>
         )}
 
     </nav>

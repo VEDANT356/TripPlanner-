@@ -545,6 +545,12 @@
   color: #4f8cff;
   transform: translateY(-5px);
 }
+.hamburger{
+  display: none;
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+}
 
 
 @media (max-width: 768px) {
@@ -552,6 +558,10 @@
     flex-direction: column;
     padding: 20px;
     gap: 15px;
+  }
+
+  .hamburger{
+    display: block;
   }
 
   .nav-links {
