@@ -1,11 +1,18 @@
 import heroImg from "../assets/header.png";
-import heroBg from "../assets/header-bg.jpg";
+import heroBg from "../assets/home-bg.png";
 import Packages from "../components/Packages";
 
 function Hero() {
     return(
-        <section className="hero">
-
+        <section
+            className="hero"
+                style={{
+                    backgroundImage: `url(${heroBg})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat"
+        }}
+        >
             <div className="hero-content">
             <p>Plan Your Perfect Journey </p>
 
@@ -14,12 +21,15 @@ function Hero() {
                 With TripPlanner
             </h1>
 
+            <p className="hero-subtitle">
+                Discover 120+ destination with personalized travel planning.
+                Secure bookings, and unforgettabel experiences.
+            </p>
+
             <button> Book A Trip Now</button>
             </div>
 
-            <div className="hero-image">
-                <img src={heroImg} alt="Plane" />
-            </div>
+            
             
         </section>
     );
