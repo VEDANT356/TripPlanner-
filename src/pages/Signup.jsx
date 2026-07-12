@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { db} from "../firebase/firebase";
 import { doc, setDoc } from "firebase/firestore";
 
+
 function Signup() {
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -48,7 +49,11 @@ function Signup() {
                 navigate("/");
 
         }catch (error) {
-            alert (error.message);
+            console.log(error);
+            console.log(error.code);
+            console.log(error.message);
+
+            alert(error.code + "\n" + error.message);
         }
         
     };
