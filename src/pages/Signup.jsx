@@ -1,4 +1,5 @@
 import {Link} from "react-router-dom";
+import toast from "react-hot-toast";
 import "../styles/Auth.css";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
@@ -23,11 +24,11 @@ function Signup() {
 
     const handleSignup = async () => {
         if (password !== confirmPassword){
-            alert("Password do not match!");
+            toast.success("Password do not match!");
             return;
         }
         if (!agreeTerms) {
-            alert("Please accept Term & Conditions.");
+            toast.success("Please accept Term & Conditions.");
             return;
         }
         try{
@@ -42,7 +43,7 @@ function Signup() {
                     email: email ,
                     createdAt: new Date(),
                 });
-                alert("Account Created Successfully!");
+                toast.success("Account Created Successfully!");
 
                 console.log(userCredential.user);
 
@@ -53,7 +54,7 @@ function Signup() {
             console.log(error.code);
             console.log(error.message);
 
-            alert(error.code + "\n" + error.message);
+            toast.error(error.code + "\n" + error.message);
         }
         
     };
@@ -61,11 +62,11 @@ function Signup() {
     const handleGoogleLogin = async() => {
         try{
             const result = await signInWithPopup(auth, googleProvider);
-            alert ("Google Login Successful!");
+            toast.success ("Google Login Successful!");
             console.log(result.user);
             navigate("/");
         } catch (error){
-            alert(error.message);
+            toast.error(error.message);
         }
     };
     return (

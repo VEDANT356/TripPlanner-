@@ -1,9 +1,10 @@
 import {Link} from "react-router-dom";
+import toast from "react-hot-toast";
 import"../styles/Auth.css";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { IoArrowBack } from "react-icons/io5";
-import { auth, googleProvider} from "../Firebase/Firebase";
+import { auth, googleProvider} from "../firebase/firebase";
 import { signInWithPopup } from "firebase/auth";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
@@ -22,26 +23,27 @@ function Login() {
                 email,
                 password
             );
+            
             alert ("Login Successful !");
             console.log(userCredential.user);
 
             navigate("/");
         }catch (error){
-            alert(error.message);
+            toast.error(error.message);
         }
     };
     
     const handleForgotPassword = async ()=> {
         if (!email) {
-            alert("Please enter your email first.");
+            toast.success("Please enter your email first.");
             return;
         }
 
         try{
             await sendPasswordResetEmail(auth, email);
-            alert("password reset email sent. Check your inbox.");
+            toast.success("password reset email sent. Check your inbox.");
         }catch (error){
-            alert(error.message);
+            toast.error(error.message);
         }
         
     };
@@ -49,11 +51,11 @@ function Login() {
     const handleGoogleLogin = async () => {
         try{
             const result = await signInWithPopup(auth, googleProvider);
-            alert("Google Login Successfull!");
+            toast.success("Google Login Successfull!");
             console.log(result.user);
             navigate("/");
         } catch (error){
-            alert(error.message);
+            toast.error(error.message);
         }
         
     };
