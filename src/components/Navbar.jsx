@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import  userIcon from "../assets/user.png";
 import { auth } from "../firebase/firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { FaBars, FaTimes , FaChevronDown } from "react-icons/fa";
 
 function Navbar() {
     const [user, setUser] = useState(null);
@@ -25,6 +25,8 @@ function Navbar() {
 
     const [menuOpen, setMenuOpen] = useState(false);
 
+    const [profileOpen, setProfileOpen] =useState(false);
+
     return (
     <nav className="navbar">
         <div className="logo">
@@ -32,6 +34,14 @@ function Navbar() {
             TripPlanner
             </Link>
         </div>
+
+        <ul className="nav-links">
+            <li><Link to="/">Home </Link></li>
+            <li><Link to="/">Packages</Link></li>
+            <li><Link to="/">Destination</Link></li>
+            <li><Link to="/">Contact</Link></li>
+
+        </ul>
 
         <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
             {menuOpen ? <FaTimes /> : <FaBars />}
@@ -53,9 +63,9 @@ function Navbar() {
     <div className="sidebar-profile">
         <img src={userIcon} alt="User" />
 
-        <h3>{user?.displayName || "Vedant Kotkar"}</h3>
+        <h3>{user?.displayName}</h3>
 
-        <p>{user?.email || "vedantkotkar2607@gmail.com"}</p>
+        <p>{user?.email }</p>
     </div>
 
     <hr />
@@ -90,20 +100,46 @@ function Navbar() {
 </div>
 
         {user ? (
-            
-                <button className="login-btn" onClick={handleLogout}>
-                    <img src={userIcon} alt="" />
+    <div className="profile-menu">
+
+        <div
+            className="profile-btn"
+            onClick={() => setProfileOpen(!profileOpen)}
+        >
+            <img src={userIcon} alt="" />
+            <span>{user.displayName || "Vedant"}</span>
+            <FaChevronDown />
+        </div>
+
+        {profileOpen && (
+            <div className="dropdown-menu">
+
+                <Link to="/profile">
+                    Profile
+                </Link>
+
+                <Link to="/wishlist">
+                    Wishlist
+                </Link>
+
+                <Link to="/booking-history">
+                    Booking History
+                </Link>
+
+                <button onClick={handleLogout}>
                     Logout
                 </button>
-            
-        ) : (
-            
-                <Link to="/login" className="login-btn">
-                    <img src={userIcon} alt="" />
-                    Login
-                </Link>
-            
+
+            </div>
         )}
+
+    </div>
+) : (
+    <Link to="/login" className="login-btn">
+        <img src={userIcon} alt="" />
+        Login
+    </Link>
+)}
 
     </nav>
 );

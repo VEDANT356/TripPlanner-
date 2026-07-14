@@ -548,7 +548,35 @@
 .hamburger{
   display: none;
 }
+.profile-menu{
+  position: relative;
+}
+.profile-btn{
+  display: flex;
+  align-items: center;
+  gap:10px;
+  cursor: pointer;
+  color: white;
+}
+.profile-btn img{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.dropdown-menu{
+  position: absolute;
+  top: 55px;
+  right: 0;
+  width: 220px;
+  background:#1b1e27;
+  border-radius: 10px;
+  overflow: hidden;
+}
 
+.dropdown-menu a:hover, 
+.dropdown-menu button:hover{
+  background: #2d3345;
+}
 
 @media (max-width: 768px) {
   .navbar {
@@ -811,9 +839,13 @@
   cursor:pointer;
 }
 
-@media(min-width:769px){
+@media(min-width:768px){
   .sidebar,
   .overlay{
     display:none;
   }
+}
+
+.profile-menu{
+  display: none;
 }
