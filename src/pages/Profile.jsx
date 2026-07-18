@@ -8,6 +8,9 @@ function Profile() {
 
   useEffect(() =>{
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      console.log(currentUser);
+      console.log(currentUser?.photoURL);
+
       setUser(currentUser);
     
   });
@@ -21,11 +24,19 @@ return (
     <div className="profile-card">
       <img
         src={
-        user?.photoURL ||
-            "https://cdn-icons-png.flaticon.com/512/149/149071.png"
+        user?.photoURL
+            ? user.photoURL.replace("=s96-c", "=s400-c")
+            : "https://cdn-icons-png.flaticon.com/512/149/149071.png"
       }
-      alt="Profile"
-      />
+        alt="Profile"
+        style={{
+        width: "180px",
+        height: "180px",
+        borderRadius: "50%",
+        objectFit: "cover",
+        border: "3px solid white",
+  }}
+/>
 
       <h2>{user?.displayName ||  "user"}</h2>
 

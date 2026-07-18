@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useEffect, useState } from "react";
-import  userIcon from "../assets/user.png";
 import { auth } from "../firebase/firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { FaBars, FaTimes , FaChevronDown } from "react-icons/fa";
@@ -60,7 +59,11 @@ function Navbar() {
     </div>
 
     <div className="sidebar-profile">
-        <img src={userIcon} alt="User" />
+        <img src={user?.photoURL ||
+            "https://cdn-icons-png.flaticon.com/512/149/149071.png"
+        }
+        alt="User"
+        />
 
         <h3>{user?.displayName}</h3>
 
@@ -105,7 +108,13 @@ function Navbar() {
             className="profile-btn"
             onClick={() => setProfileOpen(!profileOpen)}
         >
-            <img src={userIcon} alt="" />
+            <img
+                src={
+                user?.photoURL ||
+                    "https://cdn-icons-png.flaticon.com/512/149/149071.png"
+                }
+                alt="Profile"
+            />
             <span>{user.displayName || "User"}</span>
             <FaChevronDown />
         </div>
@@ -135,7 +144,13 @@ function Navbar() {
     </div>
 ) : (
     <Link to="/login" className="login-btn">
-        <img src={userIcon} alt="" />
+        <img
+            src={
+            user?.photoURL ||
+                "https://cdn-icons-png.flaticon.com/512/149/149071.png"
+            }
+            alt="Profile"
+        />
         Login
     </Link>
 )}
