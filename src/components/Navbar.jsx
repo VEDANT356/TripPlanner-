@@ -40,7 +40,6 @@ function Navbar() {
             <li><Link to="/">Packages</Link></li>
             <li><Link to="/">Destination</Link></li>
             <li><Link to="/">Contact</Link></li>
-
         </ul>
 
         <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
@@ -107,7 +106,7 @@ function Navbar() {
             onClick={() => setProfileOpen(!profileOpen)}
         >
             <img src={userIcon} alt="" />
-            <span>{user.displayName || "Vedant"}</span>
+            <span>{user.displayName || "User"}</span>
             <FaChevronDown />
         </div>
 

@@ -24,7 +24,7 @@ function Login() {
                 password
             );
             
-            alert ("Login Successful !");
+            toast.success("Login Successful !");
             console.log(userCredential.user);
 
             navigate("/");

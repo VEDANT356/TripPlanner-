@@ -571,9 +571,28 @@
   background:#1b1e27;
   border-radius: 10px;
   overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+}
+.dropdown-menu a,
+.dropdown-menu button{
+  display: block;
+  width: 100%;
+  padding: 14px 18px;
+  color: white;
+  text-decoration: none;
+  background: transparent;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font-size: 15px;
+  box-sizing: border-box;
+}
+.dropdown-menu button{
+  border-top: 1px solid #333;
 }
 
-.dropdown-menu a:hover, 
+.dropdown-menu a:hover,
 .dropdown-menu button:hover{
   background: #2d3345;
 }
@@ -846,6 +865,3 @@
   }
 }
 
-.profile-menu{
-  display: none;
-}

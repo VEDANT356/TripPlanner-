@@ -6,10 +6,11 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { IoArrowBack } from "react-icons/io5";
 import { auth, googleProvider } from "../firebase/firebase";
 import { signInWithPopup } from "firebase/auth";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { db} from "../firebase/firebase";
 import { doc, setDoc } from "firebase/firestore";
+
 
 
 function Signup() {
@@ -32,17 +33,21 @@ function Signup() {
             return;
         }
         try{
-            const userCredential =
-                await createUserWithEmailAndPassword(
-                    auth,
-                    email,
-                    password
-                );
-                await setDoc (doc(db,"users", userCredential.user.uid),{
-                    name : name,
-                    email: email ,
-                    createdAt: new Date(),
-                });
+            const userCredential = await createUserWithEmailAndPassword(
+                auth,
+                email,
+                password
+            );
+
+            await updateProfile(userCredential.user, {
+                displayName: name,
+            });
+
+            await setDoc(doc(db, "users", userCredential.user.uid), {
+                name: name,
+                email: email,
+                createdAt: new Date(),
+            });
                 toast.success("Account Created Successfully!");
 
                 console.log(userCredential.user);
@@ -65,6 +70,18 @@ function Signup() {
             toast.success ("Google Login Successful!");
             console.log(result.user);
             navigate("/");
+
+            await setDoc(
+                doc( db, "users" , result.user.uid),
+                {
+                    name: result.user.displayName,
+                    email: result.user.email,
+                    photo: result.user.photoURL,
+                    createdAt: new Date(),
+                },
+                {merge:true}
+            );
+
         } catch (error){
             toast.error(error.message);
         }
