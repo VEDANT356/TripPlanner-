@@ -7,19 +7,32 @@ import { Link } from "react-router-dom";
 import { signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
-
+import { updateProfile } from "firebase/auth";
+import { db } from "../firebase/firebase";
+import { doc, setDoc , getDoc } from "firebase/firestore";
+import { sendPasswordResetEmail } from "firebase/auth";
 
 
 function Profile() {
+  const [ editMode, setEditMode] = useState(false);
+  const [newName , setNewName] = useState("");
+  const [phone , setPhone] = useState("");
   const [user, setUser] = useState(null);
 
   useEffect(() =>{
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      console.log(currentUser);
-      console.log(currentUser?.photoURL);
-
+    const unsubscribe = onAuthStateChanged(auth, async(currentUser) => {
       setUser(currentUser);
-    
+
+        if (currentUser) {
+          setNewName(currentUser.displayName || "");
+
+          const docRef = doc(db, "users", currentUser.uid);
+        const docSnap = await getDoc(docRef);
+
+          if (docSnap.exists()) {
+      setPhone(docSnap.data().phone || "");
+    }
+  }
   });
 
   return () => unsubscribe();
@@ -36,6 +49,45 @@ function Profile() {
     }
   };
 
+  const handleSave = async () => {
+  try {
+    await updateProfile(auth.currentUser, {
+      displayName: newName,
+    });
+
+    await setDoc(
+      doc(db, "users", auth.currentUser.uid),
+      {
+        name: newName,
+        phone: phone,
+        email: auth.currentUser.email,
+        photo: auth.currentUser.photoURL,
+      },
+      { merge: true }
+    );
+
+    setUser({
+      ...auth.currentUser,
+      displayName: newName,
+    });
+
+    setEditMode(false);
+
+    toast.success("Profile Updated!");
+  } catch (err) {
+    toast.error(err.message);
+  }
+};
+
+ const handleChangePassword = async () => {
+  try{
+    await sendPasswordResetEmail (auth, user.email);
+
+    toast.success("Password reset email sent!");
+  } catch (error) {
+    toast.error(error.message);
+  }
+ };
 
 return (
   <div className="profile-page">
@@ -65,7 +117,7 @@ return (
       <p>{user?.email}</p>
 
       <p className="phone-text">
-        +91 Not Added
+        {phone || "+91 Not Added"}
       </p>
 
       <p className="member-text">
@@ -77,9 +129,10 @@ return (
       <h1>My Profile</h1>
       <label>Name</label>
       <input
-      type="text"
-      value={user?.displayName || ""}
-      readOnly
+        type="text"
+        value={newName}
+        readOnly={!editMode}
+        onChange={(e) => setNewName(e.target.value)}
       />
 
       <label>Email</label>
@@ -92,17 +145,31 @@ return (
       <label>Phone Number</label>
       <input
         type="text"
-        value="+91 Not Added"
-        readOnly
-        />
+        value={phone}
+        placeholder="+91XXXXXXXXXX"
+        readOnly={!editMode}
+        onChange={(e) => setPhone(e.target.value)}
+      />
 
-      <button>Edit Profile</button>
+      {editMode ? (
+          <button onClick={handleSave}>
+            Save Profile
+          </button>
+        ) : (
+          <button onClick={() => setEditMode(true)}>
+            Edit Profile
+          </button>
+        )}
 
-      <button className="change-pass-btn">
+      <button 
+      className="change-pass-btn"
+      onClick={handleChangePassword}
+      >
         Change Password
       </button>
 
-      <button className="logout-btn"
+      <button 
+        className="logout-btn"
         onClick={handleLogout}
       >
         Logout
