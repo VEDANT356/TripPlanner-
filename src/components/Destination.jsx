@@ -12,6 +12,7 @@ function Destination() {
             <div className="destination-container">
 
             <DestinationCard
+            id="goa"
             image={destination1}
             title="Goa"
             location="India"
@@ -20,6 +21,7 @@ function Destination() {
             />
 
             <DestinationCard
+            id="manali"
             image={destination2}
             title="Manali"
             location="Himachal Pradesh"
@@ -28,6 +30,7 @@ function Destination() {
             />
 
             <DestinationCard
+            id="jaipur"
             image={destination3}
             title="Jaipur"
             location="India"

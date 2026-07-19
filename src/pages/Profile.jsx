@@ -161,14 +161,14 @@ return (
           </button>
         )}
 
-      <button 
+      <button
       className="change-pass-btn"
       onClick={handleChangePassword}
       >
         Change Password
       </button>
 
-      <button 
+      <button
         className="logout-btn"
         onClick={handleLogout}
       >

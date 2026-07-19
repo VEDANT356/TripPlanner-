@@ -6,6 +6,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Profile from "./pages/Profile";
+import DestinationDetails from "./pages/DestinationDetails";
 
 
 
@@ -33,6 +34,10 @@ function App() {
         }
         />
         <Route path="/profile" element={<profile />} />
+        <Route
+            path="/destination/:id"
+            element={<DestinationDetails />}
+        />
       </Routes>
 
       </BrowserRouter>

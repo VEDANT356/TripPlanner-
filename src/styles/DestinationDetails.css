@@ -1,0 +1,37 @@
+.destination-page{
+    min-height:100vh;
+    background:#111827;
+    color:white;
+    padding:80px;
+}
+
+.destination-hero img{
+    width:100%;
+    border-radius:20px;
+}
+
+.destination-content{
+    margin-top:30px;
+}
+
+.info-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.info-card{
+    background:#1f2937;
+    padding:20px;
+    border-radius:12px;
+}
+
+.book-btn{
+    margin-top:30px;
+    padding:14px 30px;
+    background:#2563eb;
+    color:white;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+}

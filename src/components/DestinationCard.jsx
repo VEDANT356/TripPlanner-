@@ -1,4 +1,6 @@
-function DestinationCard ({ image, title, location,price,rating}){
+import { Link } from "react-router-dom";
+
+function DestinationCard ({id, image, title, location,price,rating}){
     return (
         <div className="destination-card">
             <div className="destination-image">
@@ -18,7 +20,9 @@ function DestinationCard ({ image, title, location,price,rating}){
                     ⭐{rating}
                 </span>
                 </div>
+            <Link to={`/destination/${title.toLowerCase()}`}>
             <button>Book Now</button>
+            </Link>
             </div>
         </div>
     );
