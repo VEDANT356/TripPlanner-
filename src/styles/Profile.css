@@ -63,3 +63,33 @@
     color: white;
     cursor: pointer;
 }
+.profile-back{
+    position:absolute;
+    top: 25px;
+    left: 25px;
+    font-size: 30px;
+    color: white;
+    text-decoration: none;
+}
+
+.profile-back:hover{
+    color: #3b82f6;
+}
+
+.profile-text,
+.member-text{
+    margin-top: 8px;
+    color: #bdbdbd;
+}
+
+.change-pass-btn{
+    margin-top: 12px;
+    width: 100%;
+    background: #444;
+}
+
+.logout-btn{
+    margin-top: 12px;
+    width:100%;
+    background: #dc2626;
+}
