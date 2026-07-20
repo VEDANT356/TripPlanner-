@@ -17,8 +17,8 @@ function DestinationDetails(){
 
             <div className="destination-hero">
                 <img
-                    src={`https://picsum.photos/1200/500?random=${id}`}
-                    alt={id}
+                    src={destination.image}
+                    alt={destination.name}
                 />
 
                 <h1>{destination.name}</h1>
