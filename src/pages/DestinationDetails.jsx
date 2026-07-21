@@ -24,6 +24,17 @@ function DestinationDetails(){
                 <h1>{destination.name}</h1>
 
             </div>
+
+            <div className="gallery">
+                {destination.gallery.map((img, index) => (
+                    <img
+                        key={index}
+                        src={img}
+                        alt={`Gallery ${index +1}`}
+                        className="gallery-img"
+                        />
+                ))}
+            </div>
             <div className="destination-content">
                 <h2> About {id}</h2>
 
@@ -68,9 +79,11 @@ function DestinationDetails(){
                 ))}
                 </ul>
 
+                <Link to={`/booking/${destination.id}`}>
                 <button className="book-btn">
                     Book Now
                 </button>
+                </Link>
 
             </div>
         </div>

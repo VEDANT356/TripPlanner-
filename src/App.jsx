@@ -7,6 +7,7 @@ import Signup from "./pages/Signup";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Profile from "./pages/Profile";
 import DestinationDetails from "./pages/DestinationDetails";
+import Booking  from  "./pages/Booking";
 
 
 
@@ -38,6 +39,9 @@ function App() {
             path="/destination/:id"
             element={<DestinationDetails />}
         />
+
+        <Route path="/booking/:id" element={<Booking />} />
+        
       </Routes>
 
       </BrowserRouter>

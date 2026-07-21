@@ -25,6 +25,13 @@ export const destinations = [
       "Jet Ski",
       "Sunset Cruise",
       "Beach Party"
+    ],
+    gallery: [
+      goa,
+      goa,
+      goa,
+      goa,
+      goa
     ]
   },
 
@@ -50,6 +57,13 @@ export const destinations = [
       "Camping",
       "Snow Activities",
       "Trekking"
+    ],
+    gallery: [
+      manali,
+      manali,
+      manali,
+      manali,
+      manali
     ]
   },
 
@@ -75,6 +89,13 @@ export const destinations = [
       "Palace Visit",
       "Local Food Tour",
       "Cultural Show"
-    ]
+    ],
+    gallery: [
+  jaipur,
+  jaipur,
+  jaipur,
+  jaipur,
+  jaipur
+]
   }
 ];
