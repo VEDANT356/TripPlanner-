@@ -20,15 +20,28 @@ function Booking(){
         
             <h1>Book Your Trip</h1>
 
-            <div className="booking-card">
+            <div className="booking-container">
+
+                <div className="booking-left">
                 <h2>{destination.name}</h2>
 
                 <img
                     src={destination.image}
                     alt={destination.name}
+                    className="booking-image"
                     />
 
-                <form className="booking-form">
+                    <p className="booking-location"> India</p>
+
+                    <p className="booking-description">
+                        {destination.description}
+                    </p>
+                </div>
+
+                <div className="booking-right">
+
+                    <h2>Booking Details</h2>
+                    <form className="booking-form">
                     <div className="input-group">
                         <label>FUll Name</label>
                         <input
@@ -62,16 +75,29 @@ function Booking(){
                         min="1"
                         defaultValue="1"
                         />
+
+                    <div className="trip-info">
+                        <p> {destination.price}</p>
+
+                        <p> {destination.duration} </p>
+
+                        <p>{destination.rating}</p>
+
+                        <p>{destination.bestTime}</p>
+
+
                     </div>
+                        </div>
 
                     <button type="submit" className="confirm-btn">
                         Confirm Booking
                     </button>
                 </form>
+                </div>
             </div>
             
         </div>
     );
 }
 
-export default Booking; 
+export default Booking;
