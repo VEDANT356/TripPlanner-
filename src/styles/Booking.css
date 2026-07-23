@@ -118,17 +118,96 @@
     display: grid;
     grid-template-columns: repeat(2,1fr);
     gap: 15px;
-    margin-top: 25px;
+    margin: 25px 0;
 }
 
 .trip-info p{
-    background: #1f2937;
+    background: #111827;
     padding: 15px;
     border-radius: 12px;
+    font-weight: 600;
 }
 
 .booking-right h2{
     margin-bottom: 25px;
     text-align: center;
     font-size: 28px;
+}
+
+.trip-card{
+    background: #111827;
+    border-radius: 15px;
+    padding: 18px;
+    transition: .3s;
+    border: 1px solid rgba(255,255,255,.05);
+}
+
+.trip-card:hover{
+    transform: translateY(-5px);
+    border-color: #2563eb;
+}
+
+.trip-card h4{
+    color: #60a5fa;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+.trip-card p{
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.booking-summary{
+    margin: 25px 0;
+    background: #111827;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.booking-row,
+.booking-total{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.summary-row{
+    color: #d1d5db;
+    margin-bottom: 15px;
+}
+
+.summary-total{
+    margin-top: 15px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #3b82f6;
+}
+
+.booking-summary hr{
+    border:none;
+    border-top:1px solid rgba(255,255,255,.1);
+}
+
+
+.booking-feature{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.feature-card{
+    background: #1f2837;
+    border-radius: 15px;
+    padding: 18px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.feature-card span{
+    display: block;
+    margin-top: 8px;
+    font-size: 13px;
+    color: #9ca3af;
 }
