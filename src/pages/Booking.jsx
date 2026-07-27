@@ -4,6 +4,13 @@ import "../styles/Booking.css";
 import {Link} from "react-router-dom";
 import { IoArrowBack } from "react-icons/io5";
 import { useState } from "react";
+import { FaHeart } from "react-icons/fa";
+import { FaMapMarkedAlt } from "react-icons/fa";
+import { FaStar} from "react-icons/fa";
+import { FaRupeeSign } from "react-icons/fa";
+import { FaCalendarAlt } from "react-icons/fa";
+import { FaSun } from "react-icons/fa";
+import { FaShieldHalved, FaBoltLightning ,FaHeadset } from "react-icons/fa6";
 
 
 function Booking(){
@@ -19,6 +26,8 @@ function Booking(){
     const total =
     price * travelers;
 
+    const [liked,setLiked] =useState(false);
+
     return(
         <div className="booking-page">
 
@@ -32,36 +41,67 @@ function Booking(){
             <div className="booking-container">
 
                 <div className="booking-left">
-                <h2>{destination.name}</h2>
 
-                <img
-                    src={destination.image}
-                    alt={destination.name}
-                    className="booking-image"
-                    />
+    <div className="hero-image">
+        <img
+            src={destination.image}
+            alt={destination.name}
+            className="booking-image"
+        />
 
-                    <p className="booking-location"> India</p>
+        <button
+            className={`wishlist-btn ${liked ? "active" : ""}`}
+            onclick={() => setLiked(!liked)}
+        >
+            <FaHeart />
+            Wishlist
+        </button>
 
-                    <p className="booking-description">
-                        {destination.description}
-                    </p>
-                </div>
+        <div className="hero-overlay">
+            <h2>{destination.name}</h2>
 
-                <div className="booking-features">
+            <p className="overlay-location">
+                <FaMapMarkedAlt />
+                Goa, India
+            </p>
 
-                    <div className="features-card">
-                        Secure Booking
-                        <span> Your data is safe</span>
-                    </div>
-                    <div className="feature-card">
-                        Instant Confirmation
-                        <span>Quick Booking Process</span>
-                    </div>
-                    <div className="feature-card">
-                        24/7 Support
-                        <span>Always here to help</span>
-                    </div>
-                </div>
+            <p className="overlay-rating">
+                <FaStar />
+                {destination.rating} (342 Reviews)
+            </p>
+        </div>
+
+    </div>
+
+    <p className="booking-location">
+        India
+    </p>
+
+    <p className="booking-description">
+        {destination.description}
+    </p>
+
+    <div className="booking-features">
+
+        <div className="feature-card">
+            <FaShieldHalved className ="feature-icon" />
+            Secure Booking
+            <span>Your data is safe</span>
+        </div>
+
+        <div className="feature-card">
+            <FaBoltLightning className="feature-icon" />
+            Instant Confirmation
+            <span>Quick Booking Process</span>
+        </div>
+
+        <div className="feature-card">
+            <FaHeadset className="feature-icon" />
+            24/7 Support
+            <span>Always here to help</span>
+        </div>
+    </div>
+</div>
 
                 <div className="booking-right">
 
@@ -109,22 +149,22 @@ function Booking(){
                     <div className="trip-info">
 
                         <div className="trip-card">
-                            <h4> Starting Price</h4>
+                            <h4> <FaRupeeSign /> Starting Price</h4>
                             <p> {destination.price}</p>
                         </div>
 
                         <div className="trip-card">
-                            <h4> Duration</h4>
+                            <h4> <FaCalendarAlt /> Duration</h4>
                             <p> {destination.duration} </p>
                         </div>
 
                         <div className="trip-card">
-                            <h4> Rating</h4>
+                            <h4> <FaStar /> Rating</h4>
                             <p>{destination.rating}</p>
                         </div>
 
                         <div className="trip-card">
-                            <h4>Best Time </h4>
+                            <h4> <FaSun /> Best Time </h4>
                             <p>{destination.bestTime}</p>
                         </div>
 
@@ -140,6 +180,9 @@ function Booking(){
                             <span> Travelers</span>
                             <span>{travelers}</span>
                         </div>
+
+                        <hr />
+
                         <div className="summary-total">
                             <span>Total Amount</span>
                             <span> {total.toLocaleString()} RS/-</span>
