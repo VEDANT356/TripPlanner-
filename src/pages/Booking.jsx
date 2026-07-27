@@ -51,7 +51,7 @@ function Booking(){
 
         <button
             className={`wishlist-btn ${liked ? "active" : ""}`}
-            onclick={() => setLiked(!liked)}
+            onClick={() => setLiked(!liked)}
         >
             <FaHeart />
             Wishlist
