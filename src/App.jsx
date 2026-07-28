@@ -8,6 +8,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import Profile from "./pages/Profile";
 import DestinationDetails from "./pages/DestinationDetails";
 import Booking  from  "./pages/Booking";
+import Wishlist from "./pages/Wishlist";
 
 
 
@@ -41,7 +42,7 @@ function App() {
         />
 
         <Route path="/booking/:id" element={<Booking />} />
-        
+        <Route path="/wishlist" element={<Wishlist />} />
       </Routes>
 
       </BrowserRouter>
