@@ -3,7 +3,7 @@ import { destinations } from "../data/destinations";
 import "../styles/Booking.css";
 import {Link} from "react-router-dom";
 import { IoArrowBack } from "react-icons/io5";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaHeart } from "react-icons/fa";
 import { FaMapMarkedAlt } from "react-icons/fa";
 import { FaStar} from "react-icons/fa";
@@ -28,6 +28,40 @@ function Booking(){
 
     const [liked,setLiked] =useState(false);
 
+    useEffect(() => {
+        const wishlist =
+                JSON.parse(localStorage.getItem("wishlist")) || [];
+
+        const exists =wishlist.find(
+            item => item.id === destination.id
+        );
+        if (exists){
+            setLiked(true);
+        }
+    }, [destination.id]);
+
+    const handleWishlist =() => {
+        let wishlist =
+            JSON.parse(localStorage.getItem("wishlist")) || [];
+
+        if (liked) {
+            wishlist =wishlist.filter(
+                item => item.id !== destination.id
+            );
+
+            setLiked(false);
+        } else {
+            wishlist.push(destination);
+
+            setLiked(false);
+        }
+
+        localStorage.setItem(
+            "wishlist",
+            JSON.stringify(wishlist)
+        );
+    };
+
     return(
         <div className="booking-page">
 
@@ -51,7 +85,7 @@ function Booking(){
 
         <button
             className={`wishlist-btn ${liked ? "active" : ""}`}
-            onClick={() => setLiked(!liked)}
+            onClick={handleWishlist}
         >
             <FaHeart />
             Wishlist
