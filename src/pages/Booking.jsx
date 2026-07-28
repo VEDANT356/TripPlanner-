@@ -53,7 +53,7 @@ function Booking(){
         } else {
             wishlist.push(destination);
 
-            setLiked(false);
+            setLiked(true);
         }
 
         localStorage.setItem(
