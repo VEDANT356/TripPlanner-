@@ -1,5 +1,6 @@
-import "../styles/Wishlist.css"
+import "../styles/Wishlist.css";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Wishlist =() =>{
     const [wishlist ,setWishlist] = useState([]);
@@ -25,7 +26,7 @@ const Wishlist =() =>{
     };
 
     return (
-        <div className="Wishlist-page">
+        <div className="wishlist-page">
             <h1>My Wishlist</h1>
 
             {
@@ -49,7 +50,15 @@ const Wishlist =() =>{
                                         {place.price}
                                     </p>
 
+                                    <div className="wishlist-buttons">
+                                        <Link
+                                            to={`/booking/%{place.id}`}
+                                            className="view-btn">
+                                            View Details
+                                        </Link>
+
                                     <button
+                                            className="remove-btn"
                                             onClick={() =>
                                                 removeWishlist(place.id)
                                             }
@@ -57,6 +66,7 @@ const Wishlist =() =>{
                                             Remove
                                         </button>
                                 </div>
+                            </div>
                             ))
                         }
                     </div>
