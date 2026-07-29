@@ -1,6 +1,7 @@
 import "../styles/Wishlist.css";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { IoArrowBack } from "react-icons/io5";
 
 const Wishlist =() =>{
     const [wishlist ,setWishlist] = useState([]);
@@ -27,6 +28,11 @@ const Wishlist =() =>{
 
     return (
         <div className="wishlist-page">
+
+            <Link to="/" className="back-btn">
+                <IoArrowBack />
+            </Link>
+
             <h1>My Wishlist</h1>
 
             {
@@ -52,9 +58,9 @@ const Wishlist =() =>{
 
                                     <div className="wishlist-buttons">
                                         <Link
-                                            to={`/booking/%{place.id}`}
+                                            to={`/booking/${place.id}`}
                                             className="view-btn">
-                                            View Details
+                                            Book Now
                                         </Link>
 
                                     <button
