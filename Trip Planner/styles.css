@@ -782,9 +782,6 @@ footer {
   }
 }
 
-
-/* ===== PACKAGES SECTION FIX ===== */
-
 .packages {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -823,7 +820,7 @@ footer {
   transform: translateY(-5px);
 }
 
-/* Mobile fix */
+
 @media (max-width: 768px) {
   .packages {
     grid-template-columns: 1fr;

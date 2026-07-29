@@ -26,6 +26,14 @@ function Navbar() {
 
     const [profileOpen, setProfileOpen] =useState(false);
 
+    
+    useEffect(() => {
+        document.body.style.overflow = menuOpen ? "hidden" : "";
+        return () => {
+            document.body.style.overflow = "";
+        };
+    }, [menuOpen]);
+
     return (
     <nav className="navbar">
         <div className="logo">
@@ -80,9 +88,9 @@ function Navbar() {
 
     <Link to="/" onClick={() => setMenuOpen(false)}>Contact</Link>
 
-    <Link to="/" onClick={() => setMenuOpen(false)}>Wishlist</Link>
+    <Link to="/wishlist" onClick={() => setMenuOpen(false)}>Wishlist</Link>
 
-    <Link to="/" onClick={() => setMenuOpen(false)}>Booking History</Link>
+    <Link to="/booking-history" onClick={() => setMenuOpen(false)}>Booking History</Link>
 
     <hr />
 
