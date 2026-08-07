@@ -25,16 +25,7 @@ function DestinationDetails(){
 
             </div>
 
-            <div className="gallery">
-                {destination.gallery.map((img, index) => (
-                    <img
-                        key={index}
-                        src={img}
-                        alt={`Gallery ${index +1}`}
-                        className="gallery-img"
-                        />
-                ))}
-            </div>
+        
             <div className="destination-content">
                 <h2> About {id}</h2>
 
@@ -43,7 +34,7 @@ function DestinationDetails(){
                 </p>
 
                 <div className="info-grid">
-                    <div>
+                    <div className="info-card">
                         <h3>Starting Price</h3>
                         <p>{destination.price}</p>
                     </div>
@@ -65,20 +56,34 @@ function DestinationDetails(){
                 </div>
 
                 <h2>Top Attraction</h2>
-                <ul className="attraction-list">
-                {destination.attractions.map((place) => (
-                <li key={place}>{place}</li>
-                ))}
-                </ul>
+                <div className="attraction-grid">
+                    {destination.attractions.map((place, index)=>(
+                        <div className="attraction-box" key={index}>
+                            <img src={place.image} alt={place.name} />
+
+                        <div className="attraction-info">
+                            <h3>{place.name}</h3>
+                            <p>{place.location}</p>
+                        </div>
+                        </div>
+                    ))}
+                    </div>
+
 
                 <h2>Activities</h2>
 
-                <ul className="activities-list">
-                {destination.activities.map((activity) => (
-                <li key={activity}>{activity}</li>
-                ))}
-                </ul>
+                <div className="activities-grid">
+                    {destination.activities.map((activity, index) => {
+                        const Icon = activity.icon;
 
+                return (
+                    <div className="activity-card" key={index}>
+                        <Icon className="activity-icon" />
+                        <h3>{activity.name}</h3>
+                    </div>
+                    );
+                })}
+                </div>
                 <Link to={`/booking/${destination.id}`}>
                 <button className="book-btn">
                     Book Now
