@@ -9,12 +9,13 @@ import Profile from "./pages/Profile";
 import DestinationDetails from "./pages/DestinationDetails";
 import Booking  from  "./pages/Booking";
 import Wishlist from "./pages/Wishlist";
+import Payment from "./pages/Payment";
 
 
 
-function App() {
-  return (
-    
+        function App() {
+            return (
+      
       <BrowserRouter>
 
       <Toaster
@@ -22,29 +23,31 @@ function App() {
         reverseOrder={false}
         />
 
-      <Routes >
-        <Route path="/"element={<Home />} />
-        <Route path="/login"element={<Login />} />
-        <Route path="/signup"element={<Signup />} />
+      <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
 
-        <Route
-          path="/profile"
-          element={
-          <ProtectedRoute>
-          <Profile />
-          </ProtectedRoute>
-        }
-        />
-        <Route path="/profile" element={<profile />} />
-        <Route
-            path="/destination/:id"
-            element={<DestinationDetails />}
-        />
+          <Route
+            path="/profile"
+              element={
+                <ProtectedRoute>
+                  <Profile />
+                </ProtectedRoute>
+    }
+  />
 
-        <Route path="/booking/:id" element={<Booking />} />
-        <Route path="/wishlist" element={<Wishlist />} />
-      </Routes>
+            <Route
+              path="/destination/:id"
+              element={<DestinationDetails />}
+            />
 
+            <Route path="/booking/:id" element={<Booking />} />
+
+            <Route path="/wishlist" element={<Wishlist />} />
+
+            <Route path="/payment" element={<Payment />} />
+            </Routes>
       </BrowserRouter>
     
   );

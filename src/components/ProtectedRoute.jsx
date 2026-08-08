@@ -1,5 +1,5 @@
-import { Navigate, replace } from "react-router-dom";
-import { auth } from "../Firebase/Firebase";
+import { Navigate } from "react-router-dom";
+import { auth } from "../firebase/firebase";
 
 function ProtectedRoute({ children}) {
     const user = auth.currentUser;

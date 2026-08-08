@@ -10,11 +10,13 @@ import { FaStar} from "react-icons/fa";
 import { FaRupeeSign } from "react-icons/fa";
 import { FaCalendarAlt } from "react-icons/fa";
 import { FaSun } from "react-icons/fa";
+import { useNavigate} from "react-router-dom";
 import { FaShieldHalved, FaBoltLightning ,FaHeadset } from "react-icons/fa6";
 
 
 function Booking(){
     const {id}  = useParams();
+    const navigate = useNavigate();
 
     const destination = destinations.find((item) => item.id === id);
 
@@ -144,7 +146,9 @@ function Booking(){
                         className="booking-form"
                         onSubmit={(e) => {
                             e.preventDefault();
-                        alert("Proceeding to payment...");
+                            navigate( "/payment", {
+                                state: {destination , travelers , total,},
+                            });
                     }}>
                     <div className="input-group">
                         <label>FUll Name</label>
@@ -229,8 +233,16 @@ function Booking(){
 
                     </div>
 
-                    <button type="submit" className="confirm-btn">
-                        Confirm Booking
+                    <button
+                        type="button"
+                        className="confirm-btn"
+                        onClick={() => {
+                            navigate("/payment", {
+                                state: { destinationId: destination.id, travelers, total }
+                            });
+                            }}
+                    >
+                    Confirm Booking
                     </button>
                 </form>
                 </div>
