@@ -9,7 +9,7 @@ import Profile from "./pages/Profile";
 import DestinationDetails from "./pages/DestinationDetails";
 import Booking  from  "./pages/Booking";
 import Wishlist from "./pages/Wishlist";
-import Payment from "./pages/Payment";
+import Payment from "./pages/payment";
 
 
 
