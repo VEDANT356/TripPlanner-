@@ -5,7 +5,17 @@ import dudhsagar from "../assets/dudhsagar.jpg";
 import aguada from "../assets/fort-aguada.jpg";
 import anjuna from "../assets/anjuna.jpg";
 import manali from "../assets/destination-2.jpg";
+import solang from "../assets/Solang Valley.jpg";
+import rohtang from "../assets/Rohtang Pass.jpg";
+import hadimba from "../assets/Hadimba Temple.jpg";
+import mallroad from "../assets/Mall Road.jpg";
+import oldmanali from "../assets/Old Manali.jpg";
 import jaipur from "../assets/destination-3.jpg";
+import hawamahal from "../assets/Hawa Mahal.jpg";
+import amerfort from "../assets/Amer Fort.jpg";
+import citypalace from "../assets/City Palace.jpg";
+import jalmahal from "../assets/Jal Mahal.jpg";
+import nahargarh from "../assets/Nahargarh Fort.jpg";
 import { FaWater, FaShip } from "react-icons/fa";
 import { GiPartyPopper } from "react-icons/gi";
 import { TbParachute } from "react-icons/tb";
@@ -83,11 +93,26 @@ export const destinations = [
     bestTime: "October - March",
     rating: "4.9 / 5",
     attractions: [
-      "Solang Valley",
-      "Rohtang Pass",
-      "Hadimba Temple",
-      "Mall Road",
-      "Old Manali",
+      {
+        name:"Solang Valley",
+        image: solang,
+      },
+      {
+        name: "Rohtang Pass",
+        image: rohtang,
+      },
+      {
+        name: "Hadimba Temple",
+        image: hadimba,
+      },
+      {
+        name: "Mall Road",
+        image: mallroad,
+      },
+      {
+        name: "Old Manali",
+        image: oldmanali,
+      },
     ],
     activities: [
   {
@@ -123,12 +148,27 @@ export const destinations = [
     bestTime: "October - February",
     rating: "4.7 / 5",
     attractions: [
-      "Hawa Mahal",
-      "Amer Fort",
-      "City Palace",
-      "Jal Mahal",
-      "Nahargarh Fort",
-    ],
+  {
+    name: "Hawa Mahal",
+    image: hawamahal,
+  },
+  {
+    name: "Amer Fort",
+    image: amerfort,
+  },
+  {
+    name: "City Palace",
+    image: citypalace,
+  },
+  {
+    name: "Jal Mahal",
+    image: jalmahal,
+  },
+  {
+    name: "Nahargarh Fort",
+    image: nahargarh,
+  },
+],
     activities: [
   {
     name: "Camel Ride",

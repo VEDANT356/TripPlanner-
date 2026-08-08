@@ -140,7 +140,12 @@ function Booking(){
                 <div className="booking-right">
 
                     <h2>Booking Details</h2>
-                    <form className="booking-form">
+                    <form
+                        className="booking-form"
+                        onSubmit={(e) => {
+                            e.preventDefault();
+                        alert("Proceeding to payment...");
+                    }}>
                     <div className="input-group">
                         <label>FUll Name</label>
                         <input
