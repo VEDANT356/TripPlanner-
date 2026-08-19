@@ -8,7 +8,7 @@ import {
     FaArrowLeft,
 } from "react-icons/fa";
 
-import "../styles/payment.css";
+import "../styles/Payment.css";
 
 function Payment() {
     const location = useLocation();
