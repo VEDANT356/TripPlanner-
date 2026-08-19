@@ -27,7 +27,7 @@ function DestinationDetails(){
 
         
             <div className="destination-content">
-                <h2> About {id}</h2>
+                <h2> About {destination.name}</h2>
 
                 <p>
                     {destination.description}
@@ -84,10 +84,8 @@ function DestinationDetails(){
                     );
                 })}
                 </div>
-                <Link to={`/booking/${destination.id}`}>
-                <button className="book-btn">
-                    Book Now
-                </button>
+                <Link to={`/booking/${destination.id}`} className="book-btn">
+                        Book Now
                 </Link>
 
             </div>

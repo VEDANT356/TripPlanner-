@@ -1,0 +1,444 @@
+html,
+body,
+#root {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+
+.payment-page {
+    min-height: 100vh;
+    width: 100%;
+    box-sizing: border-box;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 40px 20px;
+
+    position: relative;
+
+    background:
+        linear-gradient(
+            rgba(7, 18, 38, 0.55),
+            rgba(7, 18, 38, 0.70)
+        ),
+        url("../assets/Payment-bg.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    color: white;
+}
+
+
+.payment-back-btn {
+    position: fixed;
+
+    top: 25px;
+    left: 25px;
+
+    width: 52px;
+    height: 52px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(15, 31, 55, 0.95);
+
+    color: white;
+
+    font-size: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    z-index: 100;
+
+    transition: all 0.3s ease;
+}
+
+.payment-back-btn:hover {
+    background: #2587ff;
+    transform: translateX(-4px);
+}
+
+.payment-card {
+    width: 100%;
+    max-width: 650px;
+
+    margin: 0 auto;
+
+    box-sizing: border-box;
+
+    background: rgba(23, 36, 58, 0.97);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 24px;
+
+    padding: 32px;
+
+    color: white;
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.55);
+
+    overflow: hidden;
+
+    backdrop-filter: blur(8px);
+}
+
+.payment-header {
+    margin-bottom: 22px;
+}
+
+.payment-icon {
+    color: #4d9cff;
+
+    font-size: 30px;
+
+    margin-bottom: 8px;
+}
+
+.payment-header h1 {
+    margin: 0;
+
+    font-size: 32px;
+
+    font-weight: 700;
+
+    color: #ffffff;
+}
+
+.payment-header p {
+    margin: 7px 0 0;
+
+    color: #9eabc0;
+
+    font-size: 15px;
+}
+
+.payment-image {
+    width: 100%;
+    height: 300px;
+
+    object-fit: cover;
+
+    border-radius: 18px;
+
+    display: block;
+
+    margin-bottom: 22px;
+}
+
+
+.payment-card > h2 {
+    margin: 0 0 8px;
+
+    font-size: 30px;
+
+    color: #ffffff;
+}
+
+.payment-card > h2 + p {
+    color: #98a7bc;
+}
+
+.payment-details {
+    margin-top: 25px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+
+.payment-detail-row {
+    width: 100%;
+    box-sizing: border-box;
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 16px 18px;
+
+    background: #101b2d;
+
+    border-radius: 14px;
+
+    border: 1px solid rgba(255, 255, 255, 0.05);
+
+    transition: 0.3s ease;
+}
+
+.payment-detail-row:hover {
+    background: #14243b;
+
+    border-color: rgba(77, 156, 255, 0.2);
+}
+
+
+.payment-detail-row span {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    color: #aab7ca;
+
+    font-size: 15px;
+}
+
+
+
+.payment-detail-row span svg {
+    color: #4d9cff;
+}
+
+
+.payment-detail-row strong {
+    color: #ffffff;
+
+    font-size: 16px;
+}
+
+
+.payment-total {
+    margin-top: 20px;
+
+    padding: 22px;
+
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #1c3455,
+            #12233c
+        );
+
+    border: 1px solid rgba(77, 156, 255, 0.2);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+.payment-total span {
+    color: #b8c4d6;
+
+    font-size: 16px;
+}
+
+.payment-total strong {
+    display: flex;
+
+    align-items: center;
+
+    gap: 4px;
+
+    color: #5ca7ff;
+
+    font-size: 26px;
+}
+
+
+.pay-btn {
+    width: 100%;
+
+    margin-top: 20px;
+
+    padding: 16px;
+
+    border: none;
+
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2587ff,
+            #1264d6
+        );
+
+    color: white;
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 6px;
+
+    box-shadow:
+        0 8px 25px rgba(37, 135, 255, 0.25);
+
+    transition: all 0.3s ease;
+}
+
+.pay-btn:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 30px rgba(37, 135, 255, 0.4);
+}
+
+
+
+
+.cancel-btn {
+    width: 100%;
+
+    margin-top: 12px;
+
+    padding: 14px;
+
+    border: 1px solid #34445d;
+
+    border-radius: 13px;
+
+    background: transparent;
+
+    color: #aebbd0;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+.cancel-btn:hover {
+    background: #22324b;
+
+    color: white;
+
+    border-color: #4d9cff;
+}
+
+
+/* ================================
+   ERROR
+================================ */
+
+.payment-error {
+    width: 100%;
+    max-width: 500px;
+
+    box-sizing: border-box;
+
+    background: #17243a;
+
+    padding: 40px;
+
+    border-radius: 20px;
+
+    color: white;
+
+    text-align: center;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.payment-error h2 {
+    margin-bottom: 20px;
+}
+
+.payment-error button {
+    padding: 12px 22px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #2587ff;
+
+    color: white;
+
+    cursor: pointer;
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 700px) {
+
+    .payment-page {
+        min-height: 100vh;
+
+        padding: 25px 15px;
+
+        align-items: flex-start;
+
+        background-attachment: scroll;
+    }
+
+    .payment-card {
+        margin-top: 45px;
+
+        padding: 20px;
+
+        border-radius: 18px;
+    }
+
+    .payment-header h1 {
+        font-size: 25px;
+    }
+
+    .payment-image {
+        height: 220px;
+
+        border-radius: 14px;
+    }
+
+    .payment-card > h2 {
+        font-size: 24px;
+    }
+
+    .payment-detail-row {
+        padding: 14px;
+    }
+
+    .payment-total {
+        padding: 18px;
+    }
+
+    .payment-total strong {
+        font-size: 21px;
+    }
+
+    .payment-back-btn {
+        position: absolute;
+
+        top: 15px;
+        left: 15px;
+    }
+}

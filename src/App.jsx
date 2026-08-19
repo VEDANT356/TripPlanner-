@@ -7,11 +7,9 @@ import Signup from "./pages/Signup";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Profile from "./pages/Profile";
 import DestinationDetails from "./pages/DestinationDetails";
-import Booking  from  "./pages/Booking";
 import Wishlist from "./pages/Wishlist";
 import Payment from "./pages/payment";
-
-
+import Booking from "./pages/Booking";
 
         function App() {
             return (
@@ -47,6 +45,8 @@ import Payment from "./pages/payment";
             <Route path="/wishlist" element={<Wishlist />} />
 
             <Route path="/payment" element={<Payment />} />
+
+            <Route path="/booking" element={<Booking />} />
             </Routes>
       </BrowserRouter>
     
