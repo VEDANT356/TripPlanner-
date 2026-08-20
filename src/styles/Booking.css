@@ -313,10 +313,19 @@
 @media (max-width: 768px){
 
     .booking-page{
-        padding:20px;
+        padding:80px 15px 30px ; 
+        min-height: 100vh;
+        overflow-x: hidden;
+    }
+
+    .booking-page h1{
+        font-size: 32px;
+        margin-bottom: 25px;
+        line-height: 1.2;
     }
 
     .booking-container{
+        width: 100%;
         grid-template-columns:1fr;
         gap:25px;
     }
@@ -324,27 +333,187 @@
     .booking-left,
     .booking-right{
         width:100%;
+        min-width: none;
     }
 
-    .booking-image{
-        height:250px;
-    }
-
-    .hero-overlay h2{
-        font-size:38px;
-    }
-
-    .booking-features{
-        grid-template-columns:1fr;
-    }
-
-    .trip-info{
-        grid-template-columns:1fr 1fr;
-    }
 
     .back-btn{
-        position:fixed;
-        top:20px;
-        left:20px;
+        position: absolute;
+        top: 18px;
+        left: 18px;
+        width: 45px;
+        height: 45px;
+        font-size: 21px;
+    }
+
+    .hero-image{
+        width: 100%;
+    }
+    .booking-image{
+        height:250px;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 16px;
+    }
+
+    .hero-overlay {
+        left: 18px;
+        bottom: 18px;
+    }
+    .hero-overlay h2{
+        font: size 32px;
+        margin-bottom: 6px;
+    }
+
+    .overlay-location{
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+
+    .overlay-rating {
+        font-size: 14px;
+    }
+
+    .wishlist-btn{
+        top: 12px;
+        right: 12px;
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    .booking-description{
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    .booking-location{
+        font-size: 14px;
+    }
+    .booking-features{
+        grid-template-columns:1fr;
+        gap: 12px;
+        margin-top: 20px;
+    }
+
+    .feature-card{
+        padding: 18px;
+    }
+
+
+    .booking-right{
+        padding: 22px 18px;
+        border-radius: 16px;
+    }
+    .booking-right h2{
+        font-size: 24px;
+        margin-bottom: 22px;
+    }
+
+    .input-group{
+        margin-bottom: 15px;
+    }
+
+    .input-group label{
+        font-size: 14px;
+    }
+
+    .input-group input{
+        width: 100%;
+        box-sizing: border-box;
+        padding: 13px;
+        font-size: 15px;
+    }
+    .trip-info{
+        grid-template-columns:1fr 1fr;
+        gap: 10px;
+    }
+
+    .trip-info p{
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .trip-card{
+        padding: 15px;
+    }
+
+    .trip-card p{
+        font-size: 15px;
+    }
+
+    .booking-summary{
+        padding: 16px;
+        margin: 20px 0;
+    }
+    .summary-total span:last-child{
+        font-size: 24px;
+    }
+    .confirm-btn{
+        padding: 14px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .booking-page {
+        padding: 75px 12px 25px;
+    }
+
+    .booking-page h1 {
+        font-size: 27px;
+        margin-bottom: 20px;
+    }
+
+    .booking-image {
+        height: 210px;
+        border-radius: 14px;
+    }
+
+    .hero-overlay {
+        left: 14px;
+        bottom: 14px;
+    }
+    .hero-overlay h2 {
+        font-size: 27px;
+    }
+
+    .overlay-location,
+    .overlay-rating {
+        font-size: 12px;
+    }
+
+    .wishlist-btn {
+        top: 10px;
+        right: 10px;
+        padding: 7px 10px;
+    }
+     .booking-description {
+        font-size: 14px;
+        line-height: 1.55;
+    }
+
+    .booking-right {
+        padding: 18px 14px;
+    }
+
+    .booking-right h2 {
+        font-size: 22px;
+    }
+
+    .trip-info {
+        grid-template-columns: 1fr;
+    }
+
+    .trip-info p {
+        font-size: 14px;
+    }
+
+    .feature-card {
+        padding: 16px;
+    }
+
+    .feature-icon {
+        font-size: 28px;
     }
 }
