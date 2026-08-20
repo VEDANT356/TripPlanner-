@@ -49,26 +49,18 @@ function Payment() {
 
     return (
         <div className="payment-page">
-
             <div className="payment-card">
-
-
                 <div className="payment-header">
-
                     <div className="payment-icon">
                         <FaCheckCircle />
                     </div>
-
                     <div>
                         <h1>Review Your Booking</h1>
-
                         <p>
                             Check your trip details before payment
                         </p>
                     </div>
-
                 </div>
-
 
                 <img
                     src={destination.image}
@@ -112,7 +104,7 @@ function Payment() {
                     </span>
 
                     <strong>
-                        ₹{Number(destination.price).toLocaleString()}
+                        {destination.price}
                     </strong>
 
                 </div>
