@@ -154,7 +154,7 @@ function Payment() {
                     onClick={() => navigate(-1)}
                 >
                     <FaArrowLeft />
-                    Back to Booking
+                        Back to Booking
                 </button>
 
             </div>

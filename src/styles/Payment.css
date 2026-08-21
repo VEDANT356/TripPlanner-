@@ -39,9 +39,6 @@ body {
 }
 
 
-/* ================================
-   PAYMENT CARD
-================================ */
 
 .payment-card {
     width: 100%;
@@ -285,9 +282,9 @@ body {
 .cancel-btn {
     width: 100%;
 
-    margin-top: 8px;
+    margin-top: 16px;
 
-    padding: 11px;
+    padding: 13px;
 
     border: 1px solid rgba(255, 255, 255, 0.15);
 
@@ -297,11 +294,21 @@ body {
 
     color: #aebbd0;
 
-    font-size: 14px;
+    font-size: 15px;
 
     cursor: pointer;
 
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
     transition: all 0.3s ease;
+
+    -webkit-tap-highlight-color: transparent;
 }
 
 .cancel-btn:hover {
@@ -446,9 +453,11 @@ body {
     }
 
     .cancel-btn {
-        padding: 11px;
+        margin-top: 14px;
 
-        font-size: 13px;
+        padding: 12px;
+
+        font-size: 14px;
     }
 }
 
@@ -472,5 +481,9 @@ body {
 
     .payment-total strong {
         font-size: 18px;
+    }
+
+    .cancel-btn {
+        margin-top: 12px;
     }
 }

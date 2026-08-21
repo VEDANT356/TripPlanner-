@@ -435,8 +435,7 @@
     }
 
     .info-grid {
-        grid-template-columns:
-            repeat(2, 1fr);
+        grid-template-columns: 1fr;
 
         gap: 12px;
     }
@@ -454,14 +453,13 @@
     }
 
     .attraction-grid {
-        grid-template-columns:
-            repeat(2, 1fr);
+        grid-template-columns: 1fr;
 
         gap: 12px;
     }
 
     .attraction-box img {
-        height: 130px;
+        height: 190px;
     }
 
     .attraction-info {
@@ -518,20 +516,7 @@
         font-size: 27px;
     }
 
-    .info-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .attraction-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .attraction-box img {
-        height: 190px;
-    }
-
     .activities-grid {
         grid-template-columns: 1fr 1fr;
     }
 }
-
