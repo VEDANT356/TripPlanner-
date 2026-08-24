@@ -37,15 +37,66 @@ function Payment() {
     }
 
 
-    const handlePayment = () => {
-        navigate("/booking-success", {
-            state: {
-                destinationId: destination.id,
-                travelers,
-                total,
+ const handlePayment = async () => {
+    try {
+        const response = await fetch(
+            "http://localhost:5000/api/payment/order",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    amount: Number(total),
+                }),
+            }
+        );
+
+        const order = await response.json();
+
+        console.log("Razorpay Order:", order);
+
+        if (!response.ok) {
+            throw new Error(order.message || "Order creation failed");
+        }
+
+        const options = {
+            key: import.meta.env.VITE_RAZORPAY_KEY_ID,
+
+            amount: order.amount,
+            currency: order.currency,
+
+            name: "TripPlanner",
+            description: `Booking for ${destination.name}`,
+
+            order_id: order.id,
+
+            handler: function (paymentResponse) {
+                console.log("Payment Successful:", paymentResponse);
+
+                navigate("/booking-success", {
+                    state: {
+                        destinationId: destination.id,
+                        travelers,
+                        total,
+                        paymentId: paymentResponse.razorpay_payment_id,
+                    },
+                });
             },
-        });
-    };
+
+            theme: {
+                color: "#2563eb",
+            },
+        };
+
+        const razorpay = new window.Razorpay(options);
+
+        razorpay.open();
+
+    } catch (error) {
+        console.error("Payment Error:", error);
+    }
+};
 
     return (
         <div className="payment-page">
