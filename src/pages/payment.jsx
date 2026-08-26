@@ -130,8 +130,6 @@ function Payment() {
 
                 </div>
 
-
-
                 <div className="payment-detail-row">
 
                     <span>
