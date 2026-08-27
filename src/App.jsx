@@ -11,10 +11,13 @@ import Wishlist from "./pages/Wishlist";
 import Payment from "./pages/payment";
 import Booking from "./pages/Booking";
 import BookingSuccess from "./pages/BookingSuccess";
+import ScrollToTop from "./ScrollToTop";
 
 function App() {
   return (
     <BrowserRouter>
+
+      <ScrollToTop />
 
       <Toaster
         position="top-right"
