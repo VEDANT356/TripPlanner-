@@ -79,7 +79,7 @@ function Profile() {
   }
 };
 
- const handleChangePassword = async () => {
+const handleChangePassword = async () => {
   try{
     await sendPasswordResetEmail (auth, user.email);
 
@@ -97,21 +97,20 @@ return (
     </Link>
     <div className="profile-card">
       <img
-        src={
-        user?.photoURL
-            ? user.photoURL.replace("=s96-c", "=s400-c")
-            : "https://cdn-icons-png.flaticon.com/512/149/149071.png"
-      }
-        alt="Profile"
-        style={{
-        width: "180px",
-        height: "180px",
-        borderRadius: "50%",
-        objectFit: "cover",
-        border: "3px solid white",
+  src={user?.photoURL || "https://cdn-icons-png.flaticon.com/512/149/149071.png"}
+  alt="Profile"
+  onError={(e) => {
+    e.currentTarget.src =
+      "https://cdn-icons-png.flaticon.com/512/149/149071.png";
+  }}
+  style={{
+    width: "180px",
+    height: "180px",
+    borderRadius: "50%",
+    objectFit: "cover",
+    border: "3px solid white",
   }}
 />
-
       <h2>{user?.displayName ||  "user"}</h2>
 
       <p>{user?.email}</p>

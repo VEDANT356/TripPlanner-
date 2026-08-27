@@ -154,26 +154,34 @@ function Booking(){
                         <label>FUll Name</label>
                         <input
                         type="text"
-                        placeholder="Enter your Full name"/>
+                        placeholder="Enter your Full name"
+                        required
+                        />
                         </div>
 
                     <div className="input-group">
                         <label>Email</label>
                         <input
                         type="email"
-                        placeholder="Enter your email"/>
+                        placeholder="Enter your email"
+                        required
+                        />
                     </div>
                     <div className="input-group">
                         <label>Phone Number</label>
                         <input
                         type="tel"
-                        placeholder="Enter your phone number"/>
+                        placeholder="Enter your phone number"
+                        required
+                        />
                     </div>
 
                     <div className="input-group">
                         <label>Travel Date</label>
                         <input
-                        type="date"/>
+                        type="date"
+                        required
+                        />
                     </div>
 
                     <div className="input-group">
@@ -181,6 +189,7 @@ function Booking(){
                         <input
                         type="number"
                         min="1"
+                        required
                         value={travelers}
                         onChange={(e) =>
                             setTravelers(Number(e.target.value))
@@ -234,13 +243,8 @@ function Booking(){
                     </div>
 
                     <button
-                        type="button"
-                        className="confirm-btn"
-                        onClick={() => {
-                            navigate("/payment", {
-                                state: { destinationId: destination.id, travelers, total }
-                            });
-                            }}
+                        type="submit"
+                            className="confirm-btn"
                     >
                     Confirm Booking
                     </button>
