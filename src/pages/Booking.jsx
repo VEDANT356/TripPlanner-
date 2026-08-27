@@ -146,8 +146,8 @@ function Booking(){
                         className="booking-form"
                         onSubmit={(e) => {
                             e.preventDefault();
-                            navigate( "/payment", {
-                                state: {destination , travelers , total,},
+                            navigate("/payment", {
+                                state: { destinationId: destination.id, travelers, total },
                             });
                     }}>
                     <div className="input-group">
