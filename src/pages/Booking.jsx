@@ -1,58 +1,78 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { destinations } from "../data/destinations";
 import "../styles/Booking.css";
-import {Link} from "react-router-dom";
+
 import { IoArrowBack } from "react-icons/io5";
 import { useState, useEffect } from "react";
+
 import { FaHeart } from "react-icons/fa";
 import { FaMapMarkedAlt } from "react-icons/fa";
-import { FaStar} from "react-icons/fa";
+import { FaStar } from "react-icons/fa";
 import { FaRupeeSign } from "react-icons/fa";
 import { FaCalendarAlt } from "react-icons/fa";
 import { FaSun } from "react-icons/fa";
-import { useNavigate} from "react-router-dom";
-import { FaShieldHalved, FaBoltLightning ,FaHeadset } from "react-icons/fa6";
+
+import {
+    FaShieldHalved,
+    FaBoltLightning,
+    FaHeadset
+} from "react-icons/fa6";
 
 
-function Booking(){
-    const {id}  = useParams();
+function Booking() {
+
+    const { id } = useParams();
     const navigate = useNavigate();
 
-    const destination = destinations.find((item) => item.id === id);
-
-    const [travelers, setTravelers] = useState(1);
-
-    const price = parseInt(destination.price.replace(/[^\d]/g, "")
+    const destination = destinations.find(
+        (item) => item.id === id
     );
 
-    const total =
-    price * travelers;
+    const [travelers, setTravelers] = useState(1);
+    const [fullName, setFullName] = useState("");
+    const [email, setEmail] = useState("");
+    const [phone, setPhone] = useState("");
+    const [travelDate, setTravelDate] = useState("");
 
-    const [liked,setLiked] =useState(false);
+    const price = parseInt(
+        destination.price.replace(/[^\d]/g, "")
+    );
+
+    const total = price * travelers;
+
+    const [liked, setLiked] = useState(false);
 
     useEffect(() => {
-        const wishlist =
-                JSON.parse(localStorage.getItem("wishlist")) || [];
 
-        const exists =wishlist.find(
+        const wishlist =
+            JSON.parse(localStorage.getItem("wishlist")) || [];
+
+        const exists = wishlist.find(
             item => item.id === destination.id
         );
-        if (exists){
+
+        if (exists) {
             setLiked(true);
         }
+
     }, [destination.id]);
 
-    const handleWishlist =() => {
+
+    const handleWishlist = () => {
+
         let wishlist =
             JSON.parse(localStorage.getItem("wishlist")) || [];
 
         if (liked) {
-            wishlist =wishlist.filter(
+
+            wishlist = wishlist.filter(
                 item => item.id !== destination.id
             );
 
             setLiked(false);
+
         } else {
+
             wishlist.push(destination);
 
             setLiked(true);
@@ -64,196 +84,356 @@ function Booking(){
         );
     };
 
-    return(
+    const handleBookingSubmit = (e) => {
+
+        e.preventDefault();
+
+        navigate("/payment", {
+
+            state: {
+
+                destinationId: destination.id,
+
+                travelers,
+
+                total,
+                fullName,
+                email,
+                phone,
+
+                // Travel date
+                travelDate,
+            },
+
+        });
+
+    };
+
+
+    return (
+
         <div className="booking-page">
 
-            <Link to={`/destination/${destination.id}`} className="back-btn">
+            <Link
+                to={`/destination/${destination.id}`}
+                className="back-btn"
+            >
                 <IoArrowBack />
             </Link>
 
-        
-            <h1>Book Your Trip</h1>
+
+            <h1>
+                Book Your Trip
+            </h1>
 
             <div className="booking-container">
-
                 <div className="booking-left">
+                    <div className="hero-image">
+                        <img
+                            src={destination.image}
+                            alt={destination.name}
+                            className="booking-image"
+                        />
 
-    <div className="hero-image">
-        <img
-            src={destination.image}
-            alt={destination.name}
-            className="booking-image"
-        />
 
-        <button
-            className={`wishlist-btn ${liked ? "active" : ""}`}
-            onClick={handleWishlist}
-        >
-            <FaHeart />
-            Wishlist
-        </button>
+                        <button
+                            className={`wishlist-btn ${
+                                liked ? "active" : ""
+                            }`}
+                            onClick={handleWishlist}
+                        >
+                            <FaHeart />
+                            Wishlist
+                        </button>
 
-        <div className="hero-overlay">
-            <h2>{destination.name}</h2>
 
-            <p className="overlay-location">
-                <FaMapMarkedAlt />
-                Goa, India
-            </p>
+                        <div className="hero-overlay">
 
-            <p className="overlay-rating">
-                <FaStar />
-                {destination.rating} (342 Reviews)
-            </p>
-        </div>
+                            <h2>
+                                {destination.name}
+                            </h2>
 
-    </div>
 
-    <p className="booking-location">
-        India
-    </p>
+                            <p className="overlay-location">
 
-    <p className="booking-description">
-        {destination.description}
-    </p>
+                                <FaMapMarkedAlt />
 
-    <div className="booking-features">
+                                Goa, India
 
-        <div className="feature-card">
-            <FaShieldHalved className ="feature-icon" />
-            Secure Booking
-            <span>Your data is safe</span>
-        </div>
+                            </p>
 
-        <div className="feature-card">
-            <FaBoltLightning className="feature-icon" />
-            Instant Confirmation
-            <span>Quick Booking Process</span>
-        </div>
 
-        <div className="feature-card">
-            <FaHeadset className="feature-icon" />
-            24/7 Support
-            <span>Always here to help</span>
-        </div>
-    </div>
-</div>
+                            <p className="overlay-rating">
+
+                                <FaStar />
+
+                                {destination.rating}
+                                {" "}
+                                (342 Reviews)
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <p className="booking-location">
+                        India
+                    </p>
+
+
+                    <p className="booking-description">
+                        {destination.description}
+                    </p>
+
+
+                    <div className="booking-features">
+
+
+                        <div className="feature-card">
+
+                            <FaShieldHalved
+                                className="feature-icon"
+                            />
+
+                            Secure Booking
+
+                            <span>
+                                Your data is safe
+                            </span>
+
+                        </div>
+
+
+                        <div className="feature-card">
+
+                            <FaBoltLightning
+                                className="feature-icon"
+                            />
+
+                            Instant Confirmation
+
+                            <span>
+                                Quick Booking Process
+                            </span>
+
+                        </div>
+
+
+                        <div className="feature-card">
+
+                            <FaHeadset
+                                className="feature-icon"
+                            />
+
+                            24/7 Support
+
+                            <span>
+                                Always here to help
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
 
                 <div className="booking-right">
 
-                    <h2>Booking Details</h2>
+
+                    <h2>
+                        Booking Details
+                    </h2>
+
+
                     <form
                         className="booking-form"
-                        onSubmit={(e) => {
-                            e.preventDefault();
-                            navigate("/payment", {
-                                state: { destinationId: destination.id, travelers, total },
-                            });
-                    }}>
-                    <div className="input-group">
-                        <label>FUll Name</label>
-                        <input
-                        type="text"
-                        placeholder="Enter your Full name"
-                        required
-                        />
-                        </div>
-
-                    <div className="input-group">
-                        <label>Email</label>
-                        <input
-                        type="email"
-                        placeholder="Enter your email"
-                        required
-                        />
-                    </div>
-                    <div className="input-group">
-                        <label>Phone Number</label>
-                        <input
-                        type="tel"
-                        placeholder="Enter your phone number"
-                        required
-                        />
-                    </div>
-
-                    <div className="input-group">
-                        <label>Travel Date</label>
-                        <input
-                        type="date"
-                        required
-                        />
-                    </div>
-
-                    <div className="input-group">
-                        <label>Number of Travelers</label>
-                        <input
-                        type="number"
-                        min="1"
-                        required
-                        value={travelers}
-                        onChange={(e) =>
-                            setTravelers(Number(e.target.value))
-                        }
-                        />
-
-                    </div>
-
-                    <div className="trip-info">
-
-                        <div className="trip-card">
-                            <h4> <FaRupeeSign /> Starting Price</h4>
-                            <p> {destination.price}</p>
-                        </div>
-
-                        <div className="trip-card">
-                            <h4> <FaCalendarAlt /> Duration</h4>
-                            <p> {destination.duration} </p>
-                        </div>
-
-                        <div className="trip-card">
-                            <h4> <FaStar /> Rating</h4>
-                            <p>{destination.rating}</p>
-                        </div>
-
-                        <div className="trip-card">
-                            <h4> <FaSun /> Best Time </h4>
-                            <p>{destination.bestTime}</p>
-                        </div>
-
-                    </div>
-                        
-                    <div className="booking-summary">
-
-                        <div className="summary-row">
-                            <span>Trip Price</span>
-                            <span>{destination.price}</span>
-                        </div>
-                        <div className="summary-row">
-                            <span> Travelers</span>
-                            <span>{travelers}</span>
-                        </div>
-
-                        <hr />
-
-                        <div className="summary-total">
-                            <span>Total Amount</span>
-                            <span> {total.toLocaleString()} RS/-</span>
-                        </div>
-
-                    </div>
-
-                    <button
-                        type="submit"
-                            className="confirm-btn"
+                        onSubmit={handleBookingSubmit}
                     >
-                    Confirm Booking
-                    </button>
-                </form>
+
+
+
+                        <div className="input-group">
+
+                            <label>
+                                Full Name
+                            </label>
+
+                            <input
+                                type="text"
+                                placeholder="Enter your Full name"
+                                value={fullName}
+                                onChange={(e) =>
+                                    setFullName(e.target.value)
+                                }
+                                required
+                            />
+
+                        </div>
+
+
+                        <div className="input-group">
+
+                            <label>
+                                Email
+                            </label>
+
+                            <input
+                                type="email"
+                                placeholder="Enter your email"
+                                value={email}
+                                onChange={(e) =>
+                                    setEmail(e.target.value)
+                                }
+                                required
+                            />
+
+                        </div>
+
+
+                        <div className="input-group">
+
+                            <label>
+                                Phone Number
+                            </label>
+
+                            <input
+                                type="tel"
+                                placeholder="Enter your phone number"
+                                value={phone}
+                                onChange={(e) =>
+                                    setPhone(e.target.value)
+                                }
+                                required
+                            />
+                        </div>
+
+                        <div className="input-group">
+
+                            <label>
+                                Travel Date
+                            </label>
+
+                            <input
+                                type="date"
+                                value={travelDate}
+                                onChange={(e) =>
+                                    setTravelDate(e.target.value)
+                                }
+                                required
+                            />
+
+                        </div>
+                        <div className="input-group">
+                            <label>
+                                Number of Travelers
+                            </label>
+
+                            <input
+                                type="number"
+                                min="1"
+                                value={travelers}
+                                onChange={(e) =>
+                                    setTravelers(
+                                        Number(e.target.value)
+                                    )
+                                }
+                                required
+                            />
+
+                        </div>
+
+                        <div className="trip-info">
+                            <div className="trip-card">
+                                <h4>
+                                    <FaRupeeSign />
+                                    Starting Price
+                                </h4>
+
+                                <p>
+                                    {destination.price}
+                                </p>
+
+                            </div>
+                            <div className="trip-card">
+                                <h4>
+                                    <FaCalendarAlt />
+                                    Duration
+                                </h4>
+                                <p>
+                                    {destination.duration}
+                                </p>
+                            </div>
+                            <div className="trip-card">
+                                <h4>
+                                    <FaStar />
+                                    Rating
+                                </h4>
+
+                                <p>
+                                    {destination.rating}
+                                </p>
+
+                            </div>
+                            <div className="trip-card">
+                                <h4>
+                                    <FaSun />
+                                    Best Time
+                                </h4>
+                                <p>
+                                    {destination.bestTime}
+                                </p>
+                            </div>
+                        </div>
+                        <div className="booking-summary">
+
+                            <div className="summary-row">
+                                <span>
+                                    Trip Price
+                                </span>
+                                <span>
+                                    {destination.price}
+                                </span>
+                            </div>
+                            <div className="summary-row">
+                                <span>
+                                    Travelers
+                                </span>
+                                <span>
+                                    {travelers}
+                                </span>
+                            </div>
+                            <hr />
+
+                            <div className="summary-total">
+                                <span>
+                                    Total Amount
+                                </span>
+                                <span>
+                                    ₹{total.toLocaleString("en-IN")}
+                                </span>
+                            </div>
+                        </div>
+
+                        <button
+                            type="submit"
+                            className="confirm-btn"
+                        >
+                            Confirm Booking
+                        </button>
+
+
+                    </form>
+
                 </div>
+
             </div>
-            
+
         </div>
     );
 }
+
 
 export default Booking;
