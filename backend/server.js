@@ -16,7 +16,7 @@ const razorpay = new Razorpay({
 });
 
 app.get("/", (req, res) => {
-    res.send("TripPlanner Backend is Running 🚀");
+    res.send("TripPlanner Backend is Working !");
 });
 app.post("/api/payment/order", async (req, res) => {
     try {

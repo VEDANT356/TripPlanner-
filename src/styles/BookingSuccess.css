@@ -1,0 +1,164 @@
+.receipt-page{
+    min-height: 100vh;
+    background: #0f1117;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.receipt-card {
+    width: 100%;
+    max-width: 650px;
+    background: #ffffff;
+    color: #222;
+    border-radius: 16px;
+    padding: 35px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+}
+
+.receipt-header{
+    text-align: center;
+}
+
+.success-icon{
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    background: #22c55e;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 42px;
+    font-weight: bold;
+}
+
+.receipt-brand{
+    text-align: center;
+    margin-top : 30px;
+}
+
+.receipt-brand h2{
+    margin: 0;
+    font-size: 25px;
+}
+
+.receipt-brand span{
+    color: #777;
+    font-size: 14px;
+}
+
+.receipt-divider{
+    border-top: 1px dashed #ccc;
+    margin: 25px 0;
+}
+
+.receipt-section h3{
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.receipt-row{
+    display: flex;
+    justify-content: space-between;
+    gap: 20%;
+    padding: 9px 0;
+    font-size: 15px;
+}
+
+.receipt-row span{
+    color: #777;
+}
+
+.receipt-row strong{
+    text-align: right;
+}
+
+.amount{
+    font-size: 22px;
+}
+
+.paid{
+    color: #16a34a;
+}
+
+.receipt-footer{
+    text-align: center;
+    margin-top: 30px;
+}
+
+.receipt-footer span{
+    color: #888;
+    font-size: 12px;
+}
+
+.receipt-action{
+    display: flex;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.receipt-action button{
+    flex: 1;
+    border: none;
+    padding: 13px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.print-btn{
+    background: #2563eb;
+    color: white;
+}
+
+.home-btn{
+    background: #111827;
+    color: white;
+}
+
+.booking-error{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 600px) {
+
+    .receipt-page {
+        padding: 20px 10px;
+    }
+
+    .receipt-card {
+        padding: 25px 18px;
+    }
+
+    .receipt-row {
+        font-size: 14px;
+    }
+
+    .receipt-actions {
+        flex-direction: column;
+    }
+}
+@media print {
+
+    .receipt-page {
+        background: white;
+        padding: 0;
+    }
+
+    .receipt-card {
+        box-shadow: none;
+        max-width: 100%;
+    }
+
+    .receipt-actions {
+        display: none;
+    }
+}
