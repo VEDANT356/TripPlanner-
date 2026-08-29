@@ -40,7 +40,7 @@ function Payment() {
  const handlePayment = async () => {
     try {
         const response = await fetch(
-            "http://localhost:5000/api/payment/order",
+            "https://tripplanner-gqth.onrender.com/api/payment/order",
             {
                 method: "POST",
                 headers: {
@@ -213,4 +213,3 @@ function Payment() {
 }
 
 export default Payment;
-
