@@ -12,6 +12,7 @@ import Payment from "./pages/payment";
 import Booking from "./pages/Booking";
 import BookingSuccess from "./pages/BookingSuccess";
 import ScrollToTop from "./ScrollToTop";
+import BookingHistory from "./pages/BookingHistory";
 
 function App() {
   return (
@@ -48,6 +49,9 @@ function App() {
           element={<ProtectedRoute> <Booking /> </ProtectedRoute>}/>
 
         <Route path="/wishlist" element={<Wishlist />} />
+
+        <Route path="/booking-history" element={
+            <ProtectedRoute> <BookingHistory /> </ProtectedRoute>}/>
 
         <Route path="/payment" element={<Payment />} />
 

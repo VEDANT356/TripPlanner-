@@ -2,6 +2,10 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { destinations } from "../data/destinations";
 import "../styles/BookingSuccess.css";
 
+import { auth, db } from "../firebase/firebase";
+import { doc, setDoc } from "firebase/firestore";
+import { useEffect, useState } from "react";
+
 function BookingSuccess() {
     const location = useLocation();
     const navigate = useNavigate();
@@ -17,18 +21,9 @@ function BookingSuccess() {
         (item) => item.id === destinationId
     );
 
-    if (!destination) {
-        return (
-            <div className="booking-error">
-                <h2>Booking details not found.</h2>
-
-                <button onClick={() => navigate("/")}>
-                    Go Home
-                </button>
-            </div>
-        );
-    }
-    const bookingId = `TRP-${Date.now().toString().slice(-8)}`;
+    const [bookingId] = useState(
+        () => `TRP-${Date.now().toString().slice(-8)}`
+    );
 
     const paymentDate = new Date().toLocaleDateString("en-IN");
 
@@ -37,9 +32,82 @@ function BookingSuccess() {
         minute: "2-digit",
     });
 
+    useEffect(() => {
+        const saveBooking = async () => {
+            try {
+                const currentUser = auth.currentUser;
+
+                if (!currentUser || !destination) {
+                    return;
+                }
+
+                await setDoc(
+                    doc(
+                        db,
+                        "users",
+                        currentUser.uid,
+                        "bookings",
+                        bookingId
+                    ),
+                    {
+                        bookingId: bookingId,
+
+                        transactionId: paymentId || "",
+
+                        destinationId: destination.id,
+
+                        destinationName: destination.name,
+
+                        destinationImage: destination.image,
+
+                        travelers: travelers,
+
+                        duration: destination.duration,
+
+                        total: Number(total || 0),
+
+                        status: "Confirmed",
+
+                        paymentMethod: "Online Payment",
+
+                        date: new Date().toISOString(),
+                    }
+                );
+
+                console.log("Booking saved successfully!");
+            } catch (error) {
+                console.error("Booking save error:", error);
+            }
+        };
+
+        saveBooking();
+    }, [
+        destination,
+        travelers,
+        total,
+        paymentId,
+        bookingId,
+    ]);
     const handlePrint = () => {
         window.print();
     };
+    if (!destination) {
+        return (
+            <div className="booking-error">
+
+                <h2>
+                    Booking details not found.
+                </h2>
+
+                <button
+                    onClick={() => navigate("/")}
+                >
+                    Go Home
+                </button>
+
+            </div>
+        );
+    }
 
     return (
         <div className="receipt-page">
@@ -51,12 +119,15 @@ function BookingSuccess() {
                     <div className="success-icon">
                         ✓
                     </div>
+
                     <h1>
                         Payment Successful
                     </h1>
+
                     <p>
                         Your booking has been confirmed!
                     </p>
+
                 </div>
 
                 <div className="receipt-brand">
@@ -73,7 +144,6 @@ function BookingSuccess() {
 
 
                 <div className="receipt-divider"></div>
-
                 <div className="receipt-section">
 
                     <h3>
@@ -123,16 +193,12 @@ function BookingSuccess() {
 
 
                 <div className="receipt-divider"></div>
-
                 <div className="receipt-section">
 
                     <h3>
                         Payment Details
                     </h3>
-
-
                     <div className="receipt-row">
-
                         <span>
                             Amount Paid
                         </span>
@@ -140,9 +206,9 @@ function BookingSuccess() {
                         <strong className="amount">
 
                             ₹
-                            {Number(total || 0).toLocaleString(
-                                "en-IN"
-                            )}
+                            {Number(
+                                total || 0
+                            ).toLocaleString("en-IN")}
 
                         </strong>
 
@@ -160,10 +226,7 @@ function BookingSuccess() {
                         </strong>
 
                     </div>
-
-
                     <div className="receipt-row">
-
                         <span>
                             Payment Method
                         </span>
@@ -175,68 +238,53 @@ function BookingSuccess() {
                     </div>
 
                 </div>
-
-
                 <div className="receipt-divider"></div>
-
                 <div className="receipt-section">
 
                     <h3>
                         Transaction Details
                     </h3>
 
+
                     <div className="receipt-row">
 
                         <span>
                             Booking ID
                         </span>
-
                         <strong>
                             {bookingId}
                         </strong>
-
                     </div>
-
                     <div className="receipt-row">
 
                         <span>
                             Transaction ID
                         </span>
-
                         <strong>
-                            {paymentId || "Payment ID unavailable"}
+                            {paymentId ||
+                                "Payment ID unavailable"}
                         </strong>
-
                     </div>
-
                     <div className="receipt-row">
 
                         <span>
                             Date
                         </span>
-
                         <strong>
                             {paymentDate}
                         </strong>
-
                     </div>
-
                     <div className="receipt-row">
-
                         <span>
                             Time
                         </span>
-
                         <strong>
                             {paymentTime}
                         </strong>
-
                     </div>
 
                 </div>
-
                 <div className="receipt-footer">
-
                     <p>
                         Thank you for booking with TripPlanner! 🌍
                     </p>
