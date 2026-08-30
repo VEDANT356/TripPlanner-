@@ -94,13 +94,13 @@
     font-size: 12px;
 }
 
-.receipt-action{
+.receipt-actions{
     display: flex;
     gap: 12px;
     margin-top: 25px;
 }
 
-.receipt-action button{
+.receipt-actions button{
     flex: 1;
     border: none;
     padding: 13px;
