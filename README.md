@@ -215,8 +215,8 @@ I'm passionate about web development and enjoy building responsive, user-friendl
 
 ### 🔗 Connect With Me
 
-* 💼 LinkedIn: https://www.linkedin.com/in/vedant-kotkar-48976236/
-* 🐙 GitHub: https://github.com/VEDANT356
-* 📸 Instagram: https://www.instagram.com/st.v3dant
+*  LinkedIn: https://www.linkedin.com/in/vedant-kotkar-48976236/
+*  GitHub: https://github.com/VEDANT356
+*  Instagram: https://www.instagram.com/st.v3dant
 
 ---
