@@ -11,8 +11,8 @@ function Contact(){
                     </p>
                     <div className ="contact-info">
                         <p> Mumbai, India</p>
-                        <p> 📞 +91 1234567890</p>
-                        <p> 📧 Email: info@tripplanner.com</p>
+                        <p> 📞 +91 9819411512</p>
+                        <p> 📧 Email: vedantkotkar2607@gmail.com</p>
                     </div>
                 </div>
 

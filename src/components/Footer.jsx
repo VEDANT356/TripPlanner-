@@ -29,8 +29,8 @@ function Footer() {
                 <div className="footer-col">
                     <h3>Contact Info</h3>
                     <p>📍 Mumbai, India</p>
-                    <p>📞 +91 1234567890</p>
-                    <p>✉ info@tripplanner.com</p>
+                    <p>📞 +91 9819411512</p>
+                    <p>✉ vedantkotkar2607@gmail.com</p>
                 </div>
 
                 <div className="footer-col">

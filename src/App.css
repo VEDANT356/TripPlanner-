@@ -32,12 +32,21 @@
   align-items: center;
 }
 
-.nav-links a {
-  text-decoration: none;
+.nav-links button {
+  background: none;
+  border: none;
   color: white;
   font-weight: 500;
-  transition: 0.3s;
+  font-size: inherit;
+  font-family: inherit;
+  cursor: pointer;
+  padding: 0;
   position: relative;
+  transition: 0.3s;
+}
+
+.nav-links button:hover {
+  color: #3b82f6;
 }
 
 .nav-links a:hover {
