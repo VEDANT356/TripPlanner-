@@ -1,5 +1,5 @@
 import { FaInstagram, FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa";
-
+import { Link } from "react-router-dom";
 function Footer() {
     return (
         <footer className="footer">
@@ -12,11 +12,18 @@ function Footer() {
                 <div className="footer-col">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#packages">Packages</a></li>
+                        <li>
+                            <Link
+                                to="/"
+                                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                            >
+                            Home
+                            </Link>
+                        </li>
+                        <li><a href="#aboutus">AboutUs</a></li>
                         <li><a href="#destinations">Destinations</a></li>
                         <li><a href="#contact">Contact</a></li>
-                        <li><a href="#login">Login</a></li>
+                        <li><Link to="/login">Login</Link></li>
                     </ul>
                 </div>
                 <div className="footer-col">

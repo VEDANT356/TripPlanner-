@@ -2,6 +2,7 @@ import Hero from "../components/Hero"
 import "../App.css";
 import Navbar from "../components/Navbar";
 import Destination from "../components/Destination";
+import AboutUs from "../components/AboutUs";
 import WhyChoose from "../components/WhyChoose";
 import Testimonials from "../components/Testimonials";
 import Contact from "../components/Contact";
@@ -13,6 +14,7 @@ function Home(){
             <Navbar />
             <Hero />
             <Destination />
+            <AboutUs />
             <WhyChoose />
             <Testimonials />
             <Contact />

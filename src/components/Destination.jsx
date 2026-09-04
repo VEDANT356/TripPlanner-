@@ -5,7 +5,7 @@ import destination3 from "../assets/destination-3.jpg";
 
 function Destination() {
     return(
-        <section className="destination">
+        <section id="destinations" className="destination">
             
             <h2>Popular Destination</h2>
 

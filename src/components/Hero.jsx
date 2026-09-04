@@ -26,7 +26,9 @@ function Hero() {
                 Secure bookings, and unforgettabel experiences.
             </p>
 
-            <button> Book A Trip Now</button>
+            <a href="#destinations" className="hero-btn">
+                Book A Trip Now
+            </a>
             </div>
 
             

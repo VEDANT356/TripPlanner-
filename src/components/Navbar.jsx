@@ -82,7 +82,7 @@ function Navbar() {
 
     <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
 
-    <Link to="/" onClick={() => setMenuOpen(false)}>Packages</Link>
+    <Link to="/" onClick={() => setMenuOpen(false)}>AboutUs</Link>
 
     <Link to="/" onClick={() => setMenuOpen(false)}>Destination</Link>
 
