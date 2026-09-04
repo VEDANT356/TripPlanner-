@@ -1,27 +1,222 @@
-# React + Vite
+# 🌍 TripPlanner – Smart Travel Booking System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern and responsive travel booking web application built with **React.js** that allows users to explore destinations, manage wishlists, book trips, make online payments, and view their booking history.
 
-Currently, two official plugins are available:
+🔗 **Live Demo:** https://trip-planner-omega-ruddy.vercel.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* 🏠 **Home Page** – Explore the TripPlanner platform
+* 🌍 **Destinations** – Browse available travel destinations
+* 📦 **Travel Packages** – Explore different travel packages
+* ❤️ **Wishlist** – Save your favorite destinations
+* 🔐 **Authentication** – User Login & Signup using Firebase Authentication
+* 👤 **User Profile** – Manage user information
+* 📝 **Trip Booking** – Book trips with traveler details
+* 💳 **Online Payment** – Secure payment integration using Razorpay
+* 🧾 **Payment Receipt** – View and print payment receipts
+* 📚 **Booking History** – View previously completed bookings
+* 🗑️ **Booking Management** – Manage bookings from booking history
+* 📱 **Responsive Design** – Works across desktop, tablet and mobile devices
+* 🔒 **Protected Routes** – Authentication-based access to user features
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Tech Stack
 
+### Frontend
 
+* React.js
+* Vite
+* JavaScript
+* HTML5
+* CSS3
 
-LinkedIn:
-https://www.linkedin.com/in/vedant-kotkar-48976236b/
+### Backend
 
-GitHub:
-https://github.com/VEDANT356
+* Node.js
+* Express.js
 
-Instagram:
-https://www.instagram.com/st.v3dant
+### Database & Authentication
+
+* Firebase Authentication
+* Firebase Firestore
+
+### Payment
+
+* Razorpay
+
+### Deployment
+
+* Vercel – Frontend
+* Render – Backend
+
+---
+
+## 📂 Main Features
+
+### 🔐 Authentication
+
+Users can create an account and log in using Firebase Authentication.
+
+### ❤️ Wishlist
+
+Users can add destinations to their wishlist and manage their saved destinations.
+
+### 🧳 Booking
+
+Users can select a destination, enter the number of travelers and proceed with the booking.
+
+### 💳 Razorpay Payment
+
+The application uses Razorpay for online payments. The backend creates Razorpay orders securely without exposing the Razorpay secret key on the frontend.
+
+### 🧾 Booking Receipt
+
+After successful payment, users receive a detailed receipt containing:
+
+* Booking ID
+* Transaction ID
+* Destination
+* Number of Travelers
+* Trip Duration
+* Amount Paid
+* Payment Status
+* Payment Method
+* Booking Date & Time
+
+Users can also print the receipt.
+
+### 📚 Booking History
+
+Confirmed bookings are stored in Firebase Firestore and displayed in the user's Booking History.
+
+---
+
+## 🔥 Firestore Structure
+
+Bookings are stored for each authenticated user using their Firebase UID:
+
+```text
+users
+ └── userUID
+      └── bookings
+           ├── TRP-XXXXXXXX
+           ├── TRP-XXXXXXXX
+           └── ...
+```
+
+Each booking contains information such as:
+
+```text
+bookingId
+transactionId
+destinationId
+destinationName
+destinationImage
+travelers
+duration
+total
+status
+paymentMethod
+date
+```
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/VEDANT356/TripPlanner.git
+```
+
+### 2. Go to the project folder
+
+```bash
+cd TripPlanner
+```
+
+### 3. Install frontend dependencies
+
+```bash
+npm install
+```
+
+### 4. Start the frontend
+
+```bash
+npm run dev
+```
+
+---
+
+## ⚙️ Backend Setup
+
+Go to the backend folder:
+
+```bash
+cd backend
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Create a `.env` file:
+
+```env
+RAZORPAY_KEY_ID=your_razorpay_key_id
+RAZORPAY_KEY_SECRET=your_razorpay_key_secret
+```
+
+Start the backend:
+
+```bash
+node index.js
+```
+
+The backend runs locally on:
+
+```text
+http://localhost:5000
+```
+
+> ⚠️ Never upload your `.env` file or Razorpay secret key to GitHub.
+
+---
+
+## 📸 Project Highlights
+
+* Modern travel website UI
+* Destination exploration
+* Wishlist functionality
+* Firebase authentication
+* Firestore booking storage
+* Razorpay payment integration
+* Printable payment receipt
+* Booking history
+* Responsive design
+
+---
+
+## 👨‍💻 Developer
+
+### Vedant Kotkar
+
+**BSc Computer Science Student | Frontend Web Developer**
+
+I'm passionate about web development and enjoy building responsive, user-friendly and real-world web applications.
+
+### 🔗 Connect With Me
+
+*  LinkedIn: https://www.linkedin.com/in/vedant-kotkar-48976236/
+*  GitHub: https://github.com/VEDANT356
+*  Instagram: https://www.instagram.com/st.v3dant
+
+---
