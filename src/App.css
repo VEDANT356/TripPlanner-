@@ -1,7 +1,21 @@
-#root {
-  width: 100%;
+* {
+  box-sizing: border-box;
 }
 
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  background-color: #0f1117;
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+  background-color: #0f1117;
+}
 
 .navbar {
   display: flex;
@@ -48,6 +62,7 @@
 .nav-links button:hover {
   color: #3b82f6;
 }
+
 .nav-links a,
 .nav-links a:visited {
   text-decoration: none;
@@ -96,7 +111,6 @@
   box-shadow: 0 10px 25px rgba(35, 99, 235, 0.45);
 }
 
-
 .hero {
   min-height: 100vh;
   width: 100%;
@@ -118,17 +132,19 @@
   line-height: 1.1;
   color: white;
 }
-.hero-content h1 span{
+
+.hero-content h1 span {
   color: #4f8cff;
 }
-.hero-subtitle{
-  margin-top:20px;
+
+.hero-subtitle {
+  margin-top: 20px;
   margin-bottom: 35px;
   max-width: 650px;
   font-size: 18px;
   line-height: 1.8;
   color: white;
-  text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
 }
 
 .hero-content p {
@@ -139,23 +155,23 @@
 }
 
 .hero-btn {
-    display: inline-block;
-    margin-top: 40px;
-    padding: 16px 40px;
-    background-color: #2563eb;
-    color: white;
-    border-radius: 10px;
-    text-decoration: none;
-    cursor: pointer;
-    font-size: 18px;
-    font-weight: 600;
-    transition: 0.35s;
+  display: inline-block;
+  margin-top: 40px;
+  padding: 16px 40px;
+  background-color: #2563eb;
+  color: white;
+  border-radius: 10px;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  transition: 0.35s;
 }
 
 .hero-btn:hover {
-    transform: translateY(-6px) scale(1.03);
-    background: #1d4ed8;
-    box-shadow: 0 15px 30px rgba(37, 99, 235, 0.5);
+  transform: translateY(-6px) scale(1.03);
+  background: #1d4ed8;
+  box-shadow: 0 15px 30px rgba(37, 99, 235, 0.5);
 }
 
 .hero-image {
@@ -171,7 +187,6 @@
   height: auto;
   display: block;
 }
-
 
 .destination {
   padding: 100px 80px;
@@ -239,7 +254,7 @@
 }
 
 .destination-card button {
-  display:block;
+  display: block;
   margin: 20px auto;
   padding: 10px 25px;
   background: royalblue;
@@ -279,7 +294,6 @@
   color: #ffd43b;
   font-weight: bold;
 }
-
 
 .Why-Choose {
   padding: 80px 10%;
@@ -339,7 +353,6 @@
 .feature-card span {
   font-size: 38px;
 }
-
 
 .testimonials {
   padding: 90px 80px;
@@ -561,56 +574,164 @@
   color: #4f8cff;
   transform: translateY(-5px);
 }
-.hamburger{
+
+.hamburger {
+  display: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: -2px;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 1998;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -2px;
+  width: 282px;
+  max-width: 80%;
+  height: 100vh;
+  background: #1b1e27;
+  color: white;
+  z-index: 1999;
+  transform: translateX(100%);
+  transition: transform 0.35s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  padding: 20px;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  box-sizing: border-box;
+  box-shadow: none;
+  border: none;
+  outline: none;
+}
+
+.sidebar::-webkit-scrollbar {
   display: none;
 }
-.profile-menu{
-  position: relative;
+
+.sidebar.active {
+  transform: translateX(0);
 }
-.profile-btn{
+
+.sidebar-header {
   display: flex;
-  align-items: center;
-  gap:10px;
+  justify-content: flex-end;
+  font-size: 22px;
   cursor: pointer;
-  color: white;
+  margin-bottom: 15px;
+  flex-shrink: 0;
 }
-.profile-btn img{
-  width: 40px;
-  height: 40px;
+
+.sidebar-profile {
+  text-align: center;
+  margin-bottom: 15px;
+  flex-shrink: 0;
+}
+
+.sidebar-profile img {
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 10px;
 }
-.dropdown-menu{
-  position: absolute;
-  top: 55px;
-  right: 0;
-  width: 220px;
-  background:#1b1e27;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-  z-index: 1000;
+
+.sidebar-profile h3 {
+  color: white;
+  margin: 5px 0;
 }
-.dropdown-menu a,
-.dropdown-menu button{
+
+.sidebar-profile p {
+  color: #aaa;
+  font-size: 14px;
+}
+
+.sidebar hr {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  margin: 15px 0;
+  flex-shrink: 0;
+}
+
+.sidebar a,
+.sidebar button {
   display: block;
   width: 100%;
-  padding: 14px 18px;
+  padding: 12px 0;
+  margin: 0;
   color: white;
-  text-decoration: none;
-  background: transparent;
-  border: none;
   text-align: left;
+  background: none;
+  border: none;
+  font-size: 16px;
   cursor: pointer;
-  font-size: 15px;
-  box-sizing: border-box;
+  flex-shrink: 0;
+  flex-grow: 0;
 }
-.dropdown-menu button{
-  border-top: 1px solid #333;
+
+.sidebar a:hover {
+  color: #3b82f6;
+}
+
+.profile-menu {
+  position: relative;
+}
+
+.profile-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  color: white;
+}
+
+.profile-btn img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 120%;
+  right: 0;
+  background: #1b1e27;
+  border-radius: 10px;
+  min-width: 180px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  z-index: 1000;
+}
+
+.dropdown-menu a,
+.dropdown-menu button {
+  display: block;
+  padding: 12px 16px;
+  color: white;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 .dropdown-menu a:hover,
-.dropdown-menu button:hover{
-  background: #2d3345;
+.dropdown-menu button:hover {
+  background: rgba(255, 255, 255, 0.08);
 }
 
 @media (max-width: 768px) {
@@ -621,35 +742,14 @@
     justify-content: space-between;
   }
 
-  .hamburger{
-    display: block;
-    font-size: 28px;
-    color: white;
-    cursor: pointer;
-    order: 2;
-  }
-
-  .nav-links {
-    position: absolute;
-    top: 80px;
-    right: -100%;
-    left: auto;
-    width: 100%;
-    background: #1f2330;
-    display: flex;
-    gap: 30px;
-    padding: 30px 0;
-    transition: .4s ;
-    flex-direction: column;
-    z-index: 1000;
-  }
-
-  .nav-links.active{
-    right: 0;
-  }
-
+  .nav-links,
+  .profile-menu,
   .login-btn {
     display: none;
+  }
+
+  .hamburger {
+    display: block;
   }
 
   .hero {
@@ -657,9 +757,6 @@
     padding: 50px 20px;
     text-align: center;
     min-height: auto;
-  }
-  .hero h1{
-    font-size: 38px;
   }
 
   .hero-content {
@@ -677,10 +774,10 @@
     letter-spacing: 2px;
   }
 
-.hero-btn {
+  .hero-btn {
     width: 100%;
     max-width: 250px;
-}
+  }
 
   .hero-image {
     width: 100%;
@@ -752,6 +849,12 @@
   }
 }
 
+@media (min-width: 769px) {
+  .sidebar,
+  .overlay {
+    display: none;
+  }
+}
 
 @media (max-width: 480px) {
   .hero-content h1 {
@@ -785,244 +888,5 @@
   .login-btn {
     width: 150px;
     font-size: 14px;
-  }
-}
-
-.overlay{
-  position: fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,.5);
-  backdrop-filter: blur(3px);
-  z-index:999;
-}
-
-
-.sidebar{
-  position:fixed;
-  top:0;
-  right:-320px;
-  width:300px;
-  height:100vh;
-  background:#1b1e27;
-  transition:.3s ease;
-  z-index:1000;
-  display:flex;
-  flex-direction:column;
-  padding:25px;
-}
-
-.sidebar.active{
-  right:0;
-}
-
-.sidebar-header{
-  display:flex;
-  justify-content:flex-end;
-  color:white;
-  font-size:24px;
-  cursor:pointer;
-}
-
-.sidebar-profile{
-  text-align:center;
-  margin:20px 0;
-}
-
-.sidebar-profile img{
-  width:80px;
-  height:80px;
-  border-radius:50%;
-  margin-bottom:10px;
-}
-
-.sidebar-profile h3{
-  color:white;
-  margin:5px 0;
-}
-
-.sidebar-profile p{
-  color:#aaa;
-  font-size:14px;
-}
-
-.sidebar hr{
-  border:1px solid #333;
-  margin:15px 0;
-}
-
-.sidebar a{
-  color:white;
-  text-decoration:none;
-  padding:12px 0;
-  font-size:17px;
-}
-
-.sidebar a:hover{
-  color:#3b82f6;
-}
-
-.sidebar button{
-  margin-top:auto;
-  padding:12px;
-  border:none;
-  background:#2563eb;
-  color:white;
-  border-radius:8px;
-  cursor:pointer;
-}
-
-@media(min-width:768px){
-  .sidebar,
-  .overlay{
-    display:none;
-  }
-}
-
-
-.hamburger {
-  display: none;
-  font-size: 24px;
-  color: white;
-  cursor: pointer;
-  z-index: 1001;
-}
-
-
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.55);
-  z-index: 1998;
-}
-
-
-.sidebar {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 280px;
-  max-width: 80%;
-  height: 100vh;
-  background: #1b1e27;
-  color: white;
-  z-index: 1999;
-  transform: translateX(100%);
-  transition: transform 0.35s ease;
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-  overflow-y: auto;
-  box-shadow: -8px 0 25px rgba(0, 0, 0, 0.4);
-}
-
-.sidebar.active {
-  transform: translateX(0);
-}
-
-.sidebar-header {
-  display: flex;
-  justify-content: flex-end;
-  font-size: 22px;
-  cursor: pointer;
-  margin-bottom: 15px;
-}
-
-.sidebar-profile {
-  text-align: center;
-  margin-bottom: 15px;
-}
-
-.sidebar-profile img {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin: 0 auto 10px;
-}
-
-.sidebar hr {
-  border: none;
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
-  margin: 15px 0;
-}
-
-.sidebar a,
-.sidebar button {
-  display: block;
-  padding: 12px 0;
-  color: white;
-  text-align: left;
-  background: none;
-  border: none;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-
-.profile-menu {
-  position: relative;
-}
-
-.profile-btn {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer;
-  color: white;
-}
-
-.profile-btn img {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.dropdown-menu {
-  position: absolute;
-  top: 120%;
-  right: 0;
-  background: #1b1e27;
-  border-radius: 10px;
-  min-width: 180px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
-  z-index: 1000;
-}
-
-.dropdown-menu a,
-.dropdown-menu button {
-  display: block;
-  padding: 12px 16px;
-  color: white;
-  width: 100%;
-  text-align: left;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.dropdown-menu a:hover,
-.dropdown-menu button:hover {
-  background: rgba(255, 255, 255, 0.08);
-}
-
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
-  }
-
-  .profile-menu,
-  .login-btn {
-    display: none;
-  }
-
-  .hamburger {
-    display: block;
   }
 }
