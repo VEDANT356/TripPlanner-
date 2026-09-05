@@ -596,10 +596,10 @@ body {
 .sidebar {
   position: fixed;
   top: 0;
-  right: -2px;
-  width: 282px;
+  right: 0;
+  width: 280px;
   max-width: 80%;
-  height: 100vh;
+  height: 100dvh;
   background: #1b1e27;
   color: white;
   z-index: 1999;
@@ -610,7 +610,7 @@ body {
   justify-content: flex-start;
   align-items: stretch;
   padding: 20px;
-  overflow-y: auto;
+  overflow-y: overlay;
   scrollbar-width: none;
   -ms-overflow-style: none;
   box-sizing: border-box;
@@ -620,6 +620,8 @@ body {
 }
 
 .sidebar::-webkit-scrollbar {
+  width: 0;
+  height: 0;
   display: none;
 }
 
@@ -681,6 +683,7 @@ body {
   cursor: pointer;
   flex-shrink: 0;
   flex-grow: 0;
+  text-decoration: none;
 }
 
 .sidebar a:hover {
@@ -727,6 +730,7 @@ body {
   background: none;
   border: none;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .dropdown-menu a:hover,

@@ -1,316 +1,170 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useEffect, useState } from "react";
 import { auth } from "../firebase/firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
-import {
-    FaBars,
-    FaTimes,
-    FaChevronDown
-} from "react-icons/fa";
+import { FaBars, FaTimes , FaChevronDown } from "react-icons/fa";
 
 function Navbar() {
-
     const [user, setUser] = useState(null);
-    const [menuOpen, setMenuOpen] = useState(false);
-    const [profileOpen, setProfileOpen] = useState(false);
-
-    const navigate = useNavigate();
 
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+        const unsubscribe = onAuthStateChanged(auth,(currentUser) =>{
             setUser(currentUser);
         });
 
         return () => unsubscribe();
     }, []);
 
+    const handleLogout = async () => {
+        await signOut(auth);
+        setMenuOpen(false);
+        toast.success("Logged out Successfully!");
+    };
+
+    const [menuOpen, setMenuOpen] = useState(false);
+
+    const [profileOpen, setProfileOpen] =useState(false);
+
+    
     useEffect(() => {
         document.body.style.overflow = menuOpen ? "hidden" : "";
-
         return () => {
             document.body.style.overflow = "";
         };
     }, [menuOpen]);
 
-    const handleLogout = async () => {
-        await signOut(auth);
-
-        setMenuOpen(false);
-        setProfileOpen(false);
-
-        toast.success("Logged out Successfully!");
-    };
-
-    const handleSectionClick = (sectionId) => {
-
-        setMenuOpen(false);
-
-        if (window.location.pathname !== "/") {
-            navigate("/");
-            
-            setTimeout(() => {
-                document.getElementById(sectionId)?.scrollIntoView({
-                    behavior: "smooth"
-                });
-            }, 100);
-        } else {
-            document.getElementById(sectionId)?.scrollIntoView({
-                behavior: "smooth"
-            });
-        }
-    };
-
     return (
-        <nav className="navbar">
+    <nav className="navbar">
+        <div className="logo">
+        <Link to="/" className="logo-link">
+            TripPlanner
+            </Link>
+        </div>
 
-            {/* Logo */}
-            <div className="logo">
-                <Link to="/" className="logo-link">
-                    TripPlanner
-                </Link>
-            </div>
+        <ul className="nav-links">
+            <li><Link to="/">Home </Link></li>
+            <li><Link to="/">Packages</Link></li>
+            <li><Link to="/">Destination</Link></li>
+            <li><Link to="/">Contact</Link></li>
+        </ul>
 
+        <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
+            {menuOpen ? <FaTimes /> : <FaBars />}
+        </div>
 
-            {/* Desktop Navigation */}
-            <ul className="nav-links">
+        {menuOpen && (
+    <div
+        className="overlay"
+        onClick={() => setMenuOpen(false)}
+    ></div>
+)}
 
-                <li>
-                    <Link to="/">Home</Link>
-                </li>
+<div className={`sidebar ${menuOpen ? "active" : ""}`}>
 
-                <li>
-                    <button
-                        className="nav-section-btn"
-                        onClick={() => handleSectionClick("about")}
-                    >
-                        About Us
-                    </button>
-                </li>
+    <div className="sidebar-header">
+        <FaTimes onClick={() => setMenuOpen(false)} />
+    </div>
 
-                <li>
-                    <Link to="/destinations">
-                        Destination
-                    </Link>
-                </li>
+    <div className="sidebar-profile">
+        <img src={user?.photoURL ||
+            "https://cdn-icons-png.flaticon.com/512/149/149071.png"
+        }
+        alt="User"
+        />
 
-                <li>
-                    <button
-                        className="nav-section-btn"
-                        onClick={() => handleSectionClick("contact")}
-                    >
-                        Contact
-                    </button>
-                </li>
+        <h3>{user?.displayName}</h3>
 
-            </ul>
+        <p>{user?.email }</p>
+    </div>
 
+    <hr />
 
-            {/* Hamburger */}
-            <div
-                className="hamburger"
-                onClick={() => setMenuOpen(!menuOpen)}
-            >
-                {menuOpen ? <FaTimes /> : <FaBars />}
-            </div>
+    <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
 
+    <Link to="/" onClick={() => setMenuOpen(false)}>AboutUs</Link>
 
-            {/* Overlay */}
-            {menuOpen && (
-                <div
-                    className="overlay"
-                    onClick={() => setMenuOpen(false)}
-                ></div>
-            )}
+    <Link to="/" onClick={() => setMenuOpen(false)}>Destination</Link>
 
+    <Link to="/#contact">Contact</Link>
 
-            {/* Mobile Sidebar */}
-            <div className={`sidebar ${menuOpen ? "active" : ""}`}>
+    <Link to="/wishlist" onClick={() => setMenuOpen(false)}>Wishlist</Link>
 
-                {/* Sidebar Header */}
-                <div className="sidebar-header">
-                    <FaTimes
-                        onClick={() => setMenuOpen(false)}
-                    />
-                </div>
+    <Link to="/booking-history" onClick={() => setMenuOpen(false)}>Booking History</Link>
 
+    <hr />
 
-                {/* Sidebar Profile */}
-                <div className="sidebar-profile">
+    {user ? (
+        <button onClick={handleLogout}>
+            Logout
+        </button>
+    ) : (
+        <Link
+            to="/login"
+            onClick={() => setMenuOpen(false)}
+        >
+            Login
+        </Link>
+    )}
 
-                    <img
-                        src={
-                            user?.photoURL ||
-                            "https://cdn-icons-png.flaticon.com/512/149/149071.png"
-                        }
-                        alt="User"
-                    />
+</div>
 
-                    <h3>
-                        {user?.displayName || "User"}
-                    </h3>
+        {user ? (
+    <div className="profile-menu">
 
-                    <p>
-                        {user?.email || ""}
-                    </p>
+        <div
+            className="profile-btn"
+            onClick={() => setProfileOpen(!profileOpen)}
+        >
+            <img
+                src={
+                user?.photoURL ||
+                    "https://cdn-icons-png.flaticon.com/512/149/149071.png"
+                }
+                alt="Profile"
+            />
+            <span>{user.displayName || "User"}</span>
+            <FaChevronDown />
+        </div>
 
-                </div>
+        {profileOpen && (
+            <div className="dropdown-menu">
 
-
-                <hr />
-
-
-                {/* Sidebar Links */}
-
-                <Link
-                    to="/"
-                    onClick={() => setMenuOpen(false)}
-                >
-                    Home
+                <Link to="/profile">
+                    Profile
                 </Link>
 
-
-                <button
-                    className="sidebar-section-btn"
-                    onClick={() => handleSectionClick("about")}
-                >
-                    About Us
-                </button>
-
-
-                <Link
-                    to="/destinations"
-                    onClick={() => setMenuOpen(false)}
-                >
-                    Destination
-                </Link>
-
-
-                <button
-                    className="sidebar-section-btn"
-                    onClick={() => handleSectionClick("contact")}
-                >
-                    Contact
-                </button>
-
-
-                <Link
-                    to="/wishlist"
-                    onClick={() => setMenuOpen(false)}
-                >
+                <Link to="/wishlist">
                     Wishlist
                 </Link>
 
-
-                <Link
-                    to="/booking-history"
-                    onClick={() => setMenuOpen(false)}
-                >
+                <Link to="/booking-history">
                     Booking History
                 </Link>
 
-
-                <hr />
-
-
-                {/* Login / Logout */}
-
-                {user ? (
-
-                    <button onClick={handleLogout}>
-                        Logout
-                    </button>
-
-                ) : (
-
-                    <Link
-                        to="/login"
-                        onClick={() => setMenuOpen(false)}
-                    >
-                        Login
-                    </Link>
-
-                )}
+                <button onClick={handleLogout}>
+                    Logout
+                </button>
 
             </div>
+        )}
 
+    </div>
+) : (
+    <Link to="/login" className="login-btn">
+        <img
+            src={
+            user?.photoURL ||
+                "https://cdn-icons-png.flaticon.com/512/149/149071.png"
+            }
+            alt="Profile"
+        />
+        Login
+    </Link>
+)}
 
-            {/* Desktop Profile */}
-
-            {user ? (
-
-                <div className="profile-menu">
-
-                    <div
-                        className="profile-btn"
-                        onClick={() =>
-                            setProfileOpen(!profileOpen)
-                        }
-                    >
-
-                        <img
-                            src={
-                                user?.photoURL ||
-                                "https://cdn-icons-png.flaticon.com/512/149/149071.png"
-                            }
-                            alt="Profile"
-                        />
-
-                        <span>
-                            {user.displayName || "User"}
-                        </span>
-
-                        <FaChevronDown />
-
-                    </div>
-
-
-                    {profileOpen && (
-
-                        <div className="dropdown-menu">
-
-                            <Link to="/profile">
-                                Profile
-                            </Link>
-
-                            <Link to="/wishlist">
-                                Wishlist
-                            </Link>
-
-                            <Link to="/booking-history">
-                                Booking History
-                            </Link>
-
-                            <button onClick={handleLogout}>
-                                Logout
-                            </button>
-
-                        </div>
-
-                    )}
-
-                </div>
-
-            ) : (
-
-                <Link
-                    to="/login"
-                    className="login-btn"
-                >
-
-                    <img
-                        src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
-                        alt="Profile"
-                    />
-
-                    Login
-
-                </Link>
-
-            )}
-
-        </nav>
-    );
+    </nav>
+);
 }
 
 export default Navbar;
