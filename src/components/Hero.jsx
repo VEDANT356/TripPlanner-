@@ -1,6 +1,6 @@
 import heroImg from "../assets/header.png";
 import heroBg from "../assets/home-bg.png";
-import Packages from "../components/Packages";
+
 
 function Hero() {
     return(

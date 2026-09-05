@@ -44,7 +44,7 @@ function Navbar() {
 
         <ul className="nav-links">
             <li><Link to="/">Home </Link></li>
-            <li><Link to="/">Packages</Link></li>
+            <li><Link to="/">About Us</Link></li>
             <li><Link to="/">Destination</Link></li>
             <li><Link to="/">Contact</Link></li>
         </ul>

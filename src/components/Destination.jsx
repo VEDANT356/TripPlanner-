@@ -2,6 +2,9 @@ import DestinationCard from "./DestinationCard";
 import destination1 from "../assets/destination-1.jpg";
 import destination2 from "../assets/destination-2.jpg";
 import destination3 from "../assets/destination-3.jpg";
+import destination4 from "../assets/destination-4.jpg";
+import destination5 from "../assets/destination-5.jpg";
+import destination6 from "../assets/destination-6.jpg";
 
 function Destination() {
     return(
@@ -36,6 +39,33 @@ function Destination() {
             location="India"
             price="12,999/-Rs"
             rating="4.7"
+            />
+
+            <DestinationCard 
+            id="kashmir"
+            image={destination4}
+            title="Kashmir"
+            location="Jammu & Kashmir"
+            price="21,999/-Rs"
+            rating="4.9"
+            />
+
+            <DestinationCard 
+            id="kerala"
+            image={destination5}
+            title="Kerala"
+            location="India"
+            price="18,999/-Rs"
+            rating="4.8"
+            />
+
+            <DestinationCard 
+            id="ladakh"
+            image={destination6}
+            title="Ladakh"
+            location="India"
+            price="22,999/-Rs"
+            rating="4.9"
             />
 
             </div>

@@ -101,7 +101,7 @@ function Booking() {
                 email,
                 phone,
 
-                // Travel date
+
                 travelDate,
             },
 
