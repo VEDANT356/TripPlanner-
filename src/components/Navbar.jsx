@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useEffect, useState } from "react";
 import { auth } from "../firebase/firebase";
@@ -7,6 +7,7 @@ import { FaBars, FaTimes , FaChevronDown } from "react-icons/fa";
 
 function Navbar() {
     const [user, setUser] = useState(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth,(currentUser) =>{
@@ -34,6 +35,18 @@ function Navbar() {
         };
     }, [menuOpen]);
 
+    const handleSectionClick = (section) => {
+    navigate("/");
+    
+    setTimeout(() => {
+        document.getElementById(section)?.scrollIntoView({
+            behavior: "smooth"
+        });
+    }, 100);
+    
+    setMenuOpen(false);
+};
+
     return (
     <nav className="navbar">
         <div className="logo">
@@ -43,11 +56,26 @@ function Navbar() {
         </div>
 
         <ul className="nav-links">
-            <li><Link to="/">Home </Link></li>
-            <li><Link to="/">About Us</Link></li>
-            <li><Link to="/">Destination</Link></li>
-            <li><Link to="/">Contact</Link></li>
-        </ul>
+    <li><Link to="/">Home</Link></li>
+
+    <li>
+        <Link to="/" onClick={() => handleSectionClick("about")}>
+            About Us
+        </Link>
+    </li>
+
+    <li>
+        <Link to="/" onClick={() => handleSectionClick("destinations")}>
+            Destination
+        </Link>
+    </li>
+
+    <li>
+        <Link to="/" onClick={() => handleSectionClick("contact")}>
+            Contact
+        </Link>
+    </li>
+</ul>
 
         <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
             {menuOpen ? <FaTimes /> : <FaBars />}
@@ -79,14 +107,21 @@ function Navbar() {
     </div>
 
     <hr />
+        <Link to="/" onClick={() => setMenuOpen(false)}>
+    Home
+        </Link>
 
-    <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
+        <Link to="/" onClick={() => handleSectionClick("about")}>
+    About Us
+        </Link>
 
-    <Link to="/" onClick={() => setMenuOpen(false)}>AboutUs</Link>
+        <Link to="/" onClick={() => handleSectionClick("destinations")}>
+        Destination
+        </Link>
 
-    <Link to="/" onClick={() => setMenuOpen(false)}>Destination</Link>
-
-    <Link to="/#contact">Contact</Link>
+        <Link to="/" onClick={() => handleSectionClick("contact")}>
+        Contact
+        </Link>
 
     <Link to="/wishlist" onClick={() => setMenuOpen(false)}>Wishlist</Link>
 
