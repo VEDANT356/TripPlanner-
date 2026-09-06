@@ -13,6 +13,7 @@ import Booking from "./pages/Booking";
 import BookingSuccess from "./pages/BookingSuccess";
 import ScrollToTop from "./ScrollToTop";
 import BookingHistory from "./pages/BookingHistory";
+import AIAssistant from "./components/AIAssistant";
 
 function App() {
   return (
@@ -57,6 +58,8 @@ function App() {
 
         <Route path="/booking-success" element={<BookingSuccess />} />
       </Routes>
+
+      <AIAssistant />
 
     </BrowserRouter>
   );
