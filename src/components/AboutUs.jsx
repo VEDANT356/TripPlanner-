@@ -94,31 +94,33 @@ function AboutUs() {
                     </div>
 
                 </div>
+
                 <div className="about-visual">
 
-    <div className="about-image-wrapper">
+                    <div className="about-image-wrapper">
 
-        <img
-            src={aboutMain}
-            alt="TripPlanner travel"
-            className="about-main-image"
-        />
+                        <img
+                            src={aboutMountain}
+                            alt="Traveler enjoying the view"
+                            className="about-main-image"
+                        />
 
-        <img
-            src={aboutMountain}
-            alt="Mountain destination"
-            className="about-small-image about-mountain"
-        />
+                        <img
+                            src={aboutMain}
+                            alt="Mountain road destination"
+                            className="about-small-image about-mountain"
+                        />
 
-        <img
-            src={aboutSunset}
-            alt="Sunset destination"
-            className="about-small-image about-sunset"
-        />
+                        <img
+                            src={aboutSunset}
+                            alt="Sunset destination"
+                            className="about-small-image about-sunset"
+                        />
 
-    </div>
+                    </div>
 
-</div>
+                </div>
+
             </div>
         </section>
     );
