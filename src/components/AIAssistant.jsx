@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { FaRobot, FaTimes, FaPaperPlane } from "react-icons/fa";
+import { destinations } from "../data/destinations";
 import "../styles/AIAssistant.css";
 
 function AIAssistant() {
@@ -34,10 +35,21 @@ function AIAssistant() {
                 parts: [{ text: m.text }],
             }));
 
+            const destinationsContext = destinations
+                .map(
+                    (d) =>
+                        `${d.name}: ${d.duration}, price ${d.price}, best time ${d.bestTime}, rating ${d.rating}`
+                )
+                .join(" | ");
+
             const res = await fetch("https://tripplanner-gqth.onrender.com/api/chat", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ message: trimmed, history }),
+                body: JSON.stringify({
+                    message: trimmed,
+                    history,
+                    destinationsContext,
+                }),
             });
 
             const data = await res.json();
