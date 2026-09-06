@@ -123,7 +123,7 @@ function AIAssistant() {
                                 <span className="chat-sender-label">
                                     {msg.role === "user"
                                         ? "YOU"
-                                        : "TRIPPLANNER ASSISTANT"}
+                                        : "TRIPPLANNER AI"}
                                 </span>
                                 <div
                                     className={`chat-bubble ${
@@ -138,7 +138,7 @@ function AIAssistant() {
                         {loading && (
                             <div className="chat-message">
                                 <span className="chat-sender-label">
-                                    TRIPPLANNER AI
+                                    TRIPPLANNER ASSISTANT
                                 </span>
                                 <div className="chat-bubble bot typing">
                                     <span></span>
