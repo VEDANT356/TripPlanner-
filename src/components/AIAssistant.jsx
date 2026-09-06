@@ -138,7 +138,7 @@ function AIAssistant() {
                         {loading && (
                             <div className="chat-message">
                                 <span className="chat-sender-label">
-                                    TRIPPLANNER ASSISTANT
+                                    TRIPPLANNER AI
                                 </span>
                                 <div className="chat-bubble bot typing">
                                     <span></span>
