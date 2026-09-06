@@ -95,8 +95,8 @@ app.post("/api/chat", async (req, res) => {
                     systemInstruction: { parts: [{ text: SYSTEM_INSTRUCTION }] },
                     contents,
                     generationConfig: {
-                        temperature: 0.7,
-                        maxOutputTokens: 300,
+                    temperature: 0.7,
+                    maxOutputTokens: 250,
                     },
                 }),
             }

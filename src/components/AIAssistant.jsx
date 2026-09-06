@@ -29,7 +29,7 @@ function AIAssistant() {
         setLoading(true);
 
         try {
-            const history = messages.map((m) => ({
+            const history = messages.slice(-6).map((m) => ({
                 role: m.role,
                 parts: [{ text: m.text }],
             }));
