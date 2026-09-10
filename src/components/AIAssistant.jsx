@@ -30,10 +30,13 @@ function AIAssistant() {
         setLoading(true);
 
         try {
-            const history = messages.slice(-6).map((m) => ({
-                role: m.role,
-                parts: [{ text: m.text }],
-            }));
+            const history = messages
+                .slice(-6)
+                .filter((m, idx, arr) => !(idx === 0 && m.role === "model"))
+                .map((m) => ({
+                    role: m.role,
+                    parts: [{ text: m.text }],
+                }));
 
             const destinationsContext = destinations
                 .map(
