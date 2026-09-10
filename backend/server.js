@@ -81,6 +81,27 @@ Content rules:
 - Be warm and enthusiastic, but concise.`;
 }
 
+async function callGemini(apiKey, systemInstruction, contents) {
+    const response = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${apiKey}`,
+        {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                systemInstruction: { parts: [{ text: systemInstruction }] },
+                contents,
+                generationConfig: {
+                    temperature: 0.6,
+                    maxOutputTokens: 150,
+                },
+            }),
+        }
+    );
+
+    const data = await response.json();
+    return { ok: response.ok, status: response.status, data };
+}
+
 app.post("/api/chat", async (req, res) => {
     try {
         const { message, history, destinationsContext } = req.body;
@@ -100,35 +121,28 @@ app.post("/api/chat", async (req, res) => {
             { role: "user", parts: [{ text: message }] },
         ];
 
-        const response = await fetch(
-            `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${apiKey}`,
-            {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    systemInstruction: {
-                        parts: [{ text: buildSystemInstruction(destinationsContext || "") }],
-                    },
-                    contents,
-                    generationConfig: {
-                        temperature: 0.6,
-                        maxOutputTokens: 150,
-                    },
-                }),
-            }
-        );
+        const systemInstruction = buildSystemInstruction(destinationsContext || "");
 
-        const data = await response.json();
+        let result = await callGemini(apiKey, systemInstruction, contents);
 
-        if (!response.ok) {
-            console.error("Gemini API error:", data);
-            return res.status(response.status).json({
-                error: data?.error?.message || "Gemini API request failed",
+        if (!result.ok && (result.status === 503 || result.status === 500)) {
+            console.warn("Gemini busy, retrying once...");
+            await new Promise((r) => setTimeout(r, 1200));
+            result = await callGemini(apiKey, systemInstruction, contents);
+        }
+
+        if (!result.ok) {
+            console.error("Gemini API error:", result.data);
+            return res.status(result.status).json({
+                error:
+                    result.status === 503
+                        ? "The AI is a bit busy right now. Please try again in a few seconds."
+                        : result.data?.error?.message || "Gemini API request failed",
             });
         }
 
         const reply =
-            data?.candidates?.[0]?.content?.parts?.[0]?.text ||
+            result.data?.candidates?.[0]?.content?.parts?.[0]?.text ||
             "Sorry, I couldn't come up with a reply right now. Try again?";
 
         res.json({ reply });
