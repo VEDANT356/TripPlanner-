@@ -126,10 +126,16 @@ app.post("/api/chat", async (req, res) => {
         let result = await callGemini(apiKey, systemInstruction, contents);
 
         if (!result.ok && (result.status === 503 || result.status === 500)) {
-            console.warn("Gemini busy, retrying once...");
-            await new Promise((r) => setTimeout(r, 1200));
-            result = await callGemini(apiKey, systemInstruction, contents);
-        }
+    console.warn("Gemini busy, retry 1...");
+    await new Promise((r) => setTimeout(r, 1000));
+    result = await callGemini(apiKey, systemInstruction, contents);
+}
+
+        if (!result.ok && (result.status === 503 || result.status === 500)) {
+    console.warn("Gemini busy, retry 2...");
+    await new Promise((r) => setTimeout(r, 2000));
+    result = await callGemini(apiKey, systemInstruction, contents);
+}
 
         if (!result.ok) {
             console.error("Gemini API error:", result.data);
