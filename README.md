@@ -69,26 +69,23 @@ A modern and responsive travel booking web application built with **React.js** t
 
 ---
 
-## 🚀 Getting Started
-
-### Prerequisites
-
-Make sure you have **Node.js** and **npm** installed on your system.
-
-### Clone the Repository
-
-```bash
-git clone https://github.com/VEDANT356/TripPlanner.git
-
-
 👨‍💻 Developer
 Vedant Kotkar
 BSc Computer Science Student | Frontend & Full-Stack Developer
 Passionate about building responsive, user-friendly and real-world web applications using modern web technologies.
-🔗 Connect With Me
-💼 LinkedIn: https://www.linkedin.com/in/vedant-kotkar-48976236/⁠�
-🐙 GitHub: https://github.com/VEDANT356⁠�
-📸 Instagram: https://www.instagram.com/st.v3dant⁠�
+## 📫 Connect With Me
+
+**GitHub**
+
+https://github.com/VEDANT356
+
+**LinkedIn**
+
+https://www.linkedin.com/in/vedant-kotkar-48976236b/
+
+**Instagram**
+
+https://www.instagram.com/st.v3dant/
 
 
 
