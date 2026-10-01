@@ -61,29 +61,31 @@ A modern and responsive travel booking web application built with **React.js** t
 
 ## 📸 Screenshots
 
-Screenshots of the project will be added here.
-
-> More screenshots coming soon.
+<img width="1910" height="902" alt="image" src="https://github.com/user-attachments/assets/8d61aaac-5472-4c4d-a551-5c283efc398e" />
+<img width="1905" height="921" alt="image" src="https://github.com/user-attachments/assets/02d4470d-e451-42b2-9e51-1bbe3d5d2572" />
+<img width="1563" height="785" alt="image" src="https://github.com/user-attachments/assets/f983cf4f-b30d-440b-b3bf-f435316c5fac" />
+<img width="1895" height="776" alt="image" src="https://github.com/user-attachments/assets/031a37fe-b04f-43bd-ab82-e87b07a83961" />
+<img width="1902" height="897" alt="image" src="https://github.com/user-attachments/assets/e65e3daa-b598-46d7-8979-3b84873d5d7e" />
 
 ---
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-Make sure you have **Node.js** and **npm** installed on your system.
-
-### Clone the Repository
-
-```bash
-git clone https://github.com/VEDANT356/TripPlanner.git
-
 
 👨‍💻 Developer
 Vedant Kotkar
 BSc Computer Science Student | Frontend & Full-Stack Developer
 Passionate about building responsive, user-friendly and real-world web applications using modern web technologies.
-🔗 Connect With Me
-💼 LinkedIn: https://www.linkedin.com/in/vedant-kotkar-48976236/⁠�
-🐙 GitHub: https://github.com/VEDANT356⁠�
-📸 Instagram: https://www.instagram.com/st.v3dant⁠�
+## 📫 Connect With Me
+
+**GitHub**
+
+https://github.com/VEDANT356
+
+**LinkedIn**
+
+https://www.linkedin.com/in/vedant-kotkar-48976236b/
+
+**Instagram**
+
+https://www.instagram.com/st.v3dant/
+
+
+
