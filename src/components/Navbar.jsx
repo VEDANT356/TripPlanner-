@@ -3,19 +3,23 @@ import toast from "react-hot-toast";
 import { useEffect, useState } from "react";
 import { auth } from "../firebase/firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
-import { FaBars, FaTimes , FaChevronDown } from "react-icons/fa";
+import { FaBars, FaTimes, FaChevronDown } from "react-icons/fa";
 
 function Navbar() {
     const [user, setUser] = useState(null);
     const navigate = useNavigate();
+    const [darkMode, setDarkMode] = useState(true);
 
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth,(currentUser) =>{
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
         });
 
         return () => unsubscribe();
     }, []);
+    useEffect(() => {
+        document.body.classList.toggle("light-mode", !darkMode);
+    }, [darkMode]);
 
     const handleLogout = async () => {
         await signOut(auth);
@@ -25,9 +29,9 @@ function Navbar() {
 
     const [menuOpen, setMenuOpen] = useState(false);
 
-    const [profileOpen, setProfileOpen] =useState(false);
+    const [profileOpen, setProfileOpen] = useState(false);
 
-    
+
     useEffect(() => {
         document.body.style.overflow = menuOpen ? "hidden" : "";
         return () => {
@@ -36,170 +40,176 @@ function Navbar() {
     }, [menuOpen]);
 
     const handleSectionClick = (section) => {
-    navigate("/");
-    
-    setTimeout(() => {
-        document.getElementById(section)?.scrollIntoView({
-            behavior: "smooth"
-        });
-    }, 100);
-    
-    setMenuOpen(false);
-};
+        navigate("/");
+
+        setTimeout(() => {
+            document.getElementById(section)?.scrollIntoView({
+                behavior: "smooth"
+            });
+        }, 100);
+
+        setMenuOpen(false);
+    };
 
     return (
-    <nav className="navbar">
-        <div className="logo">
-        <Link to="/" className="logo-link">
-            TripPlanner
-            </Link>
-        </div>
+        <nav className="navbar">
+            <div className="logo">
+                <Link to="/" className="logo-link">
+                    TripPlanner
+                </Link>
+            </div>
 
-        <ul className="nav-links">
-    <li><Link to="/">Home</Link></li>
+            <ul className="nav-links">
+                <li><Link to="/">Home</Link></li>
 
-    <li>
-        <Link to="/" onClick={() => handleSectionClick("about")}>
-            About Us
-        </Link>
-    </li>
+                <li>
+                    <Link to="/" onClick={() => handleSectionClick("about")}>
+                        About Us
+                    </Link>
+                </li>
 
-    <li>
-        <Link to="/" onClick={() => handleSectionClick("destinations")}>
-            Destination
-        </Link>
-    </li>
+                <li>
+                    <Link to="/" onClick={() => handleSectionClick("destinations")}>
+                        Destination
+                    </Link>
+                </li>
 
-    <li>
-        <Link to="/" onClick={() => handleSectionClick("contact")}>
-            Contact
-        </Link>
-    </li>
-</ul>
+                <li>
+                    <Link to="/" onClick={() => handleSectionClick("contact")}>
+                        Contact
+                    </Link>
+                </li>
+            </ul>
 
-        <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
-            {menuOpen ? <FaTimes /> : <FaBars />}
-        </div>
+            <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
+                {menuOpen ? <FaTimes /> : <FaBars />}
+            </div>
+            <button
+                className="theme-toggle"
+                onClick={() => setDarkMode(!darkMode)}
+                aria-label="Toggle theme">
+                {darkMode ? "☀️" : "🌙"}
+            </button>
 
-        {menuOpen && (
-    <div
-        className="overlay"
-        onClick={() => setMenuOpen(false)}
-    ></div>
-)}
+            {menuOpen && (
+                <div
+                    className="overlay"
+                    onClick={() => setMenuOpen(false)}
+                ></div>
+            )}
 
-<div className={`sidebar ${menuOpen ? "active" : ""}`}>
+            <div className={`sidebar ${menuOpen ? "active" : ""}`}>
 
-    <div className="sidebar-header">
-        <FaTimes onClick={() => setMenuOpen(false)} />
-    </div>
+                <div className="sidebar-header">
+                    <FaTimes onClick={() => setMenuOpen(false)} />
+                </div>
 
-    <div className="sidebar-profile">
-        <img src={user?.photoURL ||
-            "https://cdn-icons-png.flaticon.com/512/149/149071.png"
-        }
-        alt="User"
-        />
+                <div className="sidebar-profile">
+                    <img src={user?.photoURL ||
+                        "https://cdn-icons-png.flaticon.com/512/149/149071.png"
+                    }
+                        alt="User"
+                    />
 
-        <h3>{user?.displayName}</h3>
+                    <h3>{user?.displayName}</h3>
 
-        <p>{user?.email }</p>
-    </div>
+                    <p>{user?.email}</p>
+                </div>
 
-    <hr />
-        <Link to="/" onClick={() => setMenuOpen(false)}>
-    Home
-        </Link>
-
-        <Link to="/" onClick={() => handleSectionClick("about")}>
-    About Us
-        </Link>
-
-        <Link to="/" onClick={() => handleSectionClick("destinations")}>
-        Destination
-        </Link>
-
-        <Link to="/" onClick={() => handleSectionClick("contact")}>
-        Contact
-        </Link>
-
-    <Link to="/wishlist" onClick={() => setMenuOpen(false)}>Wishlist</Link>
-
-    <Link to="/booking-history" onClick={() => setMenuOpen(false)}>Booking History</Link>
-
-    <hr />
-
-    {user ? (
-        <button onClick={handleLogout}>
-            Logout
-        </button>
-    ) : (
-        <Link
-            to="/login"
-            onClick={() => setMenuOpen(false)}
-        >
-            Login
-        </Link>
-    )}
-
-</div>
-
-        {user ? (
-    <div className="profile-menu">
-
-        <div
-            className="profile-btn"
-            onClick={() => setProfileOpen(!profileOpen)}
-        >
-            <img
-                src={
-                user?.photoURL ||
-                    "https://cdn-icons-png.flaticon.com/512/149/149071.png"
-                }
-                alt="Profile"
-            />
-            <span>{user.displayName || "User"}</span>
-            <FaChevronDown />
-        </div>
-
-        {profileOpen && (
-            <div className="dropdown-menu">
-
-                <Link to="/profile">
-                    Profile
+                <hr />
+                <Link to="/" onClick={() => setMenuOpen(false)}>
+                    Home
                 </Link>
 
-                <Link to="/wishlist">
-                    Wishlist
+                <Link to="/" onClick={() => handleSectionClick("about")}>
+                    About Us
                 </Link>
 
-                <Link to="/booking-history">
-                    Booking History
+                <Link to="/" onClick={() => handleSectionClick("destinations")}>
+                    Destination
                 </Link>
 
-                <button onClick={handleLogout}>
-                    Logout
-                </button>
+                <Link to="/" onClick={() => handleSectionClick("contact")}>
+                    Contact
+                </Link>
+
+                <Link to="/wishlist" onClick={() => setMenuOpen(false)}>Wishlist</Link>
+
+                <Link to="/booking-history" onClick={() => setMenuOpen(false)}>Booking History</Link>
+
+                <hr />
+
+                {user ? (
+                    <button onClick={handleLogout}>
+                        Logout
+                    </button>
+                ) : (
+                    <Link
+                        to="/login"
+                        onClick={() => setMenuOpen(false)}
+                    >
+                        Login
+                    </Link>
+                )}
 
             </div>
-        )}
 
-    </div>
-) : (
-    <Link to="/login" className="login-btn">
-        <img
-            src={
-            user?.photoURL ||
-                "https://cdn-icons-png.flaticon.com/512/149/149071.png"
-            }
-            alt="Profile"
-        />
-        Login
-    </Link>
-)}
+            {user ? (
+                <div className="profile-menu">
 
-    </nav>
-);
+                    <div
+                        className="profile-btn"
+                        onClick={() => setProfileOpen(!profileOpen)}
+                    >
+                        <img
+                            src={
+                                user?.photoURL ||
+                                "https://cdn-icons-png.flaticon.com/512/149/149071.png"
+                            }
+                            alt="Profile"
+                        />
+                        <span>{user.displayName || "User"}</span>
+                        <FaChevronDown />
+                    </div>
+
+                    {profileOpen && (
+                        <div className="dropdown-menu">
+
+                            <Link to="/profile">
+                                Profile
+                            </Link>
+
+                            <Link to="/wishlist">
+                                Wishlist
+                            </Link>
+
+                            <Link to="/booking-history">
+                                Booking History
+                            </Link>
+
+                            <button onClick={handleLogout}>
+                                Logout
+                            </button>
+
+                        </div>
+                    )}
+
+                </div>
+            ) : (
+                <Link to="/login" className="login-btn">
+                    <img
+                        src={
+                            user?.photoURL ||
+                            "https://cdn-icons-png.flaticon.com/512/149/149071.png"
+                        }
+                        alt="Profile"
+                    />
+                    Login
+                </Link>
+            )}
+
+        </nav>
+    );
 }
 
 export default Navbar;

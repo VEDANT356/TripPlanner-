@@ -1,20 +1,40 @@
+:root {
+    --bg-color: #0f1117;
+    --text-color: #ffffff;
+    --card-bg: #1b1e27;
+    --section-bg: #111216;
+    --muted-text: #9ca3af;
+    --border-color: #2c2c2c;
+}
+
+body.light-mode {
+    --bg-color: #f5f7fb;
+    --text-color: #111827;
+    --card-bg: #ffffff;
+    --section-bg: #ffffff;
+    --muted-text: #6b7280;
+    --border-color: #d1d5db;
+}
+
 * {
   box-sizing: border-box;
 }
 
 html,
 body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  min-height: 100%;
-  background-color: #0f1117;
-  overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 #root {
-  width: 100%;
-  background-color: #0f1117;
+    width: 100%;
+    background-color: var(--bg-color);
 }
 
 .navbar {
@@ -189,12 +209,13 @@ body {
 }
 
 .destination {
-  padding: 100px 80px;
-  background: #0f1117;
+    padding: 100px 80px;
+    background: var(--bg-color);
+    color: var(--text-color);
 }
 
 .destination h2 {
-  color: white;
+  color: var(--text-color);
   font-size: 42px;
   text-align: center;
   margin-bottom: 40px;
@@ -210,7 +231,7 @@ body {
 .destination-card {
   width: 100%;
   max-width: 350px;
-  background: #1b1e27;
+  background: var(--card-bg);
   border-radius: 18px;
   overflow: hidden;
   transition: 0.35s;
@@ -296,10 +317,9 @@ body {
 }
 
 .Why-Choose {
-  padding: 80px 10%;
-  background: #0f1117;
-  color: white;
-  text-align: center;
+    padding: 80px 10%;
+    background: var(--bg-color);
+    color: var(--text-color);
 }
 
 .Why-Choose h2 {
@@ -314,7 +334,7 @@ body {
 }
 
 .Why-card {
-  background: #1f2430;
+  background: var(--card-bg);
   padding: 35px 20px;
   border-radius: 15px;
   transition: 0.3s;
@@ -355,8 +375,8 @@ body {
 }
 
 .testimonials {
-  padding: 90px 80px;
-  background: #0f1117;
+    padding: 90px 80px;
+    background: var(--bg-color);
 }
 
 .testimonials h2 {
@@ -376,7 +396,7 @@ body {
 .testimonial-card {
   width: 100%;
   max-width: 330px;
-  background: #1b1e27;
+  background: var(--card-bg);
   border-radius: 18px;
   padding: 30px;
   text-align: center;
@@ -893,4 +913,23 @@ body {
     width: 150px;
     font-size: 14px;
   }
+}
+
+
+.theme-toggle {
+    border: none;
+    background: transparent;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 6px 10px;
+    border-radius: 8px;
+}
+
+.theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+body.light-mode .theme-toggle {
+    color: #111827;
 }
